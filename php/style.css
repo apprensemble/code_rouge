@@ -1,0 +1,477 @@
+/* intranoo-ie.css */
+
+/*imagim.css S1F0 du 11/05/2006*/
+
+
+
+
+/*-------------------------- Entête de page ---------------------------*/
+
+.entete1  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	color : #FF7200;
+	text-decoration : none;
+	text-align : left;
+	vertical-align : center;
+	
+	}
+
+
+.entete2:link,	
+	 A.entete2:active,
+	 A.entete2:visited {font-size : 12px;font-family: arial;color:#000000;text-decoration:none;}
+	 A.entete2:hover {font-size : 12px;font-family: arial;color:#FF7200;text-decoration:underline;
+	} 
+
+.entete3  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	color : #FF0000;
+	text-decoration : none;
+	text-align : left;
+	vertical-align : center;
+
+	}
+
+
+.titre  {
+	font-family : Amazon;
+	font-size : 40px;
+	font-weight : bold;
+	color : #FF6600;
+	text-decoration : none;
+	text-align : center;
+	vertical-align : center;
+
+	}
+
+.ptitre  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 30px;
+	font-weight : bold;
+	color : #FF6600;
+	text-decoration : none;
+	text-align : center;
+	vertical-align : center;
+
+	}
+
+.Contour  {background-color: #EEEDED ;}
+
+
+/*-------------------------- Pied de page ---------------------------*/
+
+.pied  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	color : #000000;
+	text-decoration : none;
+	text-align : center;
+	vertical-align : left;
+	display : table-cell;
+	line-height : 12px;
+}
+
+.pied:link,	
+	 A.pied:active,
+	 A.pied:visited {font-size : 12px;font-family: arial;color:#000000;text-decoration:none;vertical-align : middle;}
+	 A.pied:hover {font-size : 12px;font-family: arial;color:#FF6600;text-decoration:underline;vertical-align : middle;} 
+
+.piedFond  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	color : #000000;
+	text-decoration : none;
+	text-align : center;
+	vertical-align : middle;
+	display : table-cell;
+	line-height : 12px;
+        background-color :   #EEEDED ;
+}
+
+
+/*-------------------------- dm -----------------------------*/
+
+.dmTitre  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 16px;
+	font-weight : bold;
+	color : #FF6600;
+	text-decoration : none;
+	text-align : left;
+	vertical-align : center;
+	display : table-cell;
+	line-height : 20px;
+}
+
+.dmTitre2  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 16px;
+	font-weight : bold;
+	color : #000000;
+	text-decoration : none;
+	text-align : left;
+	vertical-align : center;
+	display : table-cell;
+	line-height : 20px;
+}
+
+.dmTitre3  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 14px;
+	font-weight : bold;
+	color : #000000;
+	text-decoration : none;
+	text-align : left;
+	vertical-align : center;
+	display : table-cell;
+	line-height : 20px;
+}
+
+.dmTitre4  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 14px;
+	color : #000000;
+	text-decoration : none;
+	text-align : left;
+	vertical-align : center;
+	display : table-cell;
+	line-height : 20px;
+}
+
+.dmFond  {background-color :   #EEEDED ;}
+.dmFond2  {background-color :   #DDDDDD ;}
+.dmFond3  {background-color :   #FFFFFF ;}
+
+.dmLien:link,	
+	 A.dmLien:active,
+	 A.dmLien:visited {font-size : 12px;font-family:arial;color:#000000;text-decoration:none;}
+	 A.dmLien:hover {font-size : 12px;font-family:arial;color:#000000;text-decoration:underline;} 
+
+.dmContour  {background-color: #EEEDED ;}
+.dmContour2  {background-color: #999999 ;}
+
+.dmContenu  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	color : #FF0000;
+	text-decoration : none;
+	font-weight : bold;
+	text-align : left;
+	vertical-align : center;
+	display : table-cell;
+	line-height : 12px;
+}
+
+.dmBrevesTitre  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 14px;
+	font-weight : bold;
+	color : #000000;
+	text-decoration : none;
+	text-align : left;
+	vertical-align : center;
+	display : table-cell;
+	line-height : 12px;
+}
+
+.dmBrevesContenu  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	color : #000000;
+	text-decoration : none;
+	text-align : left;
+	vertical-align : center;
+	display : table-cell;
+	line-height : 12px;
+}
+
+.avertissement  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 14px;
+	color : #FF0000;
+	text-decoration : none;
+	font-weight : bold;
+	text-align : left;
+	vertical-align : center;
+	display : table-cell;
+	line-height : 12px;
+}
+
+.calqueTitre  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 14px;
+	font-weight : bold;
+	color : #FF6600;
+	text-decoration : none;
+	text-align : left;
+	vertical-align : center;
+	display : table-cell;
+	line-height : 20px;
+}
+
+
+.calqueFond  {background-color: #EEEDED ;}
+
+.calqueLien:link,	
+	 A.calqueLien:active,
+	 A.calqueLien:visited {font-size : 12px;font-family:arial;color:#000000;text-decoration:none;}
+	 A.calqueLien:hover {font-size : 12px;font-family:arial;color:#000000;text-decoration:underline;} 
+
+
+.FormTitre  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	font-weight : bold;
+	color : #000000;
+	text-decoration : none;
+	text-align : left;
+	vertical-align : center;
+	display : table-cell;
+	line-height : 12px;
+}
+
+
+.FormContenu  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	color : #000000;
+	text-decoration : none;
+	text-align : left;
+	vertical-align : center;
+	display : table-cell;
+	line-height : 12px;
+}
+
+
+
+
+.ptitre999 { font-family: Verdana; font-size: 17pt; color:#cd4110; text-decoration:none; font-weight : bold;}
+.titre999 	{ font-family: Verdana; font-size: 12pt; color:#28458F; text-decoration:none; font-weight : bold;}
+.titab 	{ font-family: Verdana; font-size: 10pt; color:#EEEEEE; text-decoration:none; font-weight : bold;}
+.noi108 {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 08pt; color: #000000; text-decoration: none}
+.form	{ font-family: Verdana; font-size: 7pt; color:#333333; text-decoration:none; font-weight : bold;}
+.rouge7 { font-family: Verdana; font-size: 7pt; color:#DD0000; text-decoration:none; font-weight : bold;}
+.bleu7 	{ font-family: Verdana; font-size: 7pt; color:#2556a5; text-decoration:none; font-weight : bold;}
+.arbor	{ font-family: Verdana; font-size: 7pt; color:#2556a5; font-weight : bold;}
+A.arbor { font-family: Verdana; font-size: 7pt; color:#2556a5; text-decoration:none; font-weight : bold;}
+
+.arbor2	{
+	font-family: Verdana;
+	font-size: 7pt; 
+	color:#7556a5; 
+	font-weight : bold;
+}
+
+.bouton	{
+	font-family: Verdana;
+	font-size: 9pt;
+	color:#000000;
+	text-decoration:none;
+	background-color: #999999;
+	border: 1px solid #FF6600;
+}
+
+.txtti	{
+	font-family: Verdana;
+	font-size: 9pt;
+	color:#28458F;
+	text-decoration:none;
+	font-weight : bold;
+}
+
+.LigneTitreTab {
+	color: #FFFFFF;
+	background:#FF6600;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	text-align : center;
+	text-decoration:none;
+	font-weight : bold;
+}
+
+.titnl {
+	color: #FFFFFF;
+	background:#5080b0;
+	font-family: Verdana;
+	font-size: 10pt;
+	text-decoration:none;
+}
+
+.ligneTab 	{  
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	background:#DDDDDD;
+	font-size: 10pt; 
+	color: #000000; 
+	text-decoration: none;
+
+}
+
+
+
+.titblc {
+	color: #FFFFFF;
+	background:#DDDDDD;
+	font-family: Verdana;
+	font-size: 10pt;
+	text-decoration:none;
+	font-weight : bold;
+}
+
+
+
+.dmTbTitre1  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 25px;
+	font-weight : bold;
+	color : #FF6600;
+	text-decoration : none;
+	text-align : center;
+	vertical-align : center;
+
+	}
+
+.dmTbTitre2  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 16px;
+	font-weight : bold;
+	color : #FF6600;
+	text-decoration : none;
+	text-align : center;
+	vertical-align : center;
+
+	}
+
+.dmTbTitre3  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 16px;
+	font-weight : bold;
+	color : #FF6600;
+	text-decoration : none;
+	text-align : center;
+	vertical-align : center;
+
+	}
+
+.dmTbTitre3:link,	
+	 A.dmTbTitre3:active,
+	 A.dmTbTitre3:visited {font-size : 16px;font-family:arial;color:#FF6600;text-decoration:none;}
+	 A.dmTbTitre3:hover {font-size : 16px;font-family:arial;color:#FF6600;text-decoration:underline;} 
+
+.dmTbSousTitre  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 20px;
+	font-weight : bold;
+	color : #FF6600;
+	text-decoration : none;
+	text-align : left;
+	vertical-align : center;
+	display : table-cell;
+	line-height : 20px;
+}
+
+.dmTbSousTitre2  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 20px;
+	font-weight : bold;
+	color : #FF6600;
+	text-decoration : none;
+	text-align : left;
+	vertical-align : center;
+	display : table-cell;
+	line-height : 20px;
+}
+
+
+.dmLienTb:link,	
+	 A.dmLienTb:active,
+	 A.dmLienTb:visited {font-size : 12px;font-family:arial;color:#000000;text-decoration:none;}
+	 A.dmLienTb:hover {font-size : 12px;font-family:arial;color:#FF6600;text-decoration:underline;} 
+
+
+
+.dmLienCompare {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 10px;
+	color : #FF6600;
+	text-decoration : none;
+	text-align : center;
+	vertical-align : middle;
+	display : table-cell;
+	line-height : 12px;
+}
+.dmLienCompare:link,	
+	 A.dmLienCompare:active,
+	 A.dmLienCompare:visited {font-size : 10px;font-family:arial;color:#FF6600;text-decoration:none;}
+	 A.dmLienCompare:hover {font-size:12px;font-family:arial;font-weight:bold;color:#FF6600;text-decoration:underline;} 
+
+
+.dmSection  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	font-weight : bold;
+	color : #000000;
+	text-decoration : none;
+	text-align : center;
+	vertical-align : middle;
+	display : table-cell;
+	line-height : 12px;
+	background-color :   #F8ECDF ;
+}
+
+.dmSection:link,	
+	 A.dmSection:active,
+	 A.dmSection:visited {font-size : 12px;font-family: arial;color:#000000;text-decoration:none;vertical-align : middle;}
+	 A.dmSection:hover {font-size : 12px;font-family: arial;color:#FF6600;text-decoration:underline;vertical-align : middle;} 
+
+
+
+
+
+.dmSectionV  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	font-weight : bold;
+	color : #000000;
+	text-decoration : none;
+	text-align : left;
+	vertical-align : middle;
+	display : table-cell;
+	line-height : 16px;
+	background-color :   #F8ECDF ;
+}
+
+.dmSectionV:link,	
+	 A.dmSectionV:active,
+	 A.dmSectionV:visited {font-size : 12px;font-family: arial;color:#000000;text-decoration:none;vertical-align : middle;}
+	 A.dmSectionV:hover {font-size : 12px;font-family: arial;color:#FF6600;text-decoration:underline;vertical-align : middle;}
+
+
+
+
+.liste1{
+width:200px;
+font-family:Arial, Helvetica, sans-serif;
+font-style:normal;
+font-size:10px;
+}
+
+
+.liste2{
+width:50px;
+font-family:Arial, Helvetica, sans-serif;
+font-style:normal;
+font-size:10px;
+}
+
+.menuSelec {
+text-decoration:none;
+color:#FF6600;
+text-align:center;
+font-family:Verdana, Arial;
+font-weight:bold;
+font-style:normal;
+font-size:12px;
+background-color:;
+}
