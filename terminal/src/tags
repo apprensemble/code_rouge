@@ -1,0 +1,31 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+LS_FIC	ls.h	8;"	d
+MA_GESTION	gestion_message.h	2;"	d
+MON_MENU	menu.h	2;"	d
+TLIM	gestion_message.h	3;"	d
+action_thread1	thread.c	/^void *action_thread1(void *message) {$/;"	f
+action_thread2	thread.c	/^int action_thread2(pthread_t lautre) {$/;"	f
+banniere	menu.c	/^int banniere(char *nom) {$/;"	f
+choix	menu.c	/^int choix() {$/;"	f
+clean_stdin	menu.c	/^void clean_stdin() {$/;"	f
+creation_canal	serveur.c	/^creation_canal(int ma_socket,int *ta_socket,struct sockaddr_in *client) {$/;"	f
+def_serveur	serveur.c	/^int def_serveur(struct sockaddr_in *server) {$/;"	f
+ecriture_s	serveur.c	/^int ecriture_s(int ta_socket) {$/;"	f
+get_message	gestion_message.c	/^char* get_message () {$/;"	f
+init_serveur	serveur.c	/^int init_serveur(struct sockaddr_in *server) { $/;"	f
+lancement_service	serveur.c	/^void lancement_service(int ta_socket) {$/;"	f
+lecture	ls.c	/^int lecture(char *nom_de_fichier) {$/;"	f
+lecture_s	serveur.c	/^int lecture_s(int ta_socket) {$/;"	f
+liste_fichiers	ls.c	/^int liste_fichiers(char *rep) {$/;"	f
+lock	serveur.c	/^pthread_mutex_t lock;$/;"	v
+main	client.c	/^int main (int argc, char *argv[]) {$/;"	f
+main	serveur.c	/^int main(int argc,int **argv) {$/;"	f
+main	thread.c	/^int main(int argc, char **argv) {$/;"	f
+menu	menu.c	/^int menu() {$/;"	f
+message	gestion_message.c	/^static char message[TLIM];$/;"	v	file:
+set_message	gestion_message.c	/^int set_message(char nouveau_message[TLIM]) {$/;"	f
