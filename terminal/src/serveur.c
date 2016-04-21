@@ -70,20 +70,20 @@ creation_canal(int ma_socket,int *ta_socket,struct sockaddr_in *client) {
 	}
 }
 
-int ecriture_s(int ta_socket) {
+int ecriture_s(int ta_socket, int id) {
 	char message[TLIM];
-	strcpy(message,get_message());
+	strcpy(message,get_message(id));
 	//ajouter un mode debug?
 	//printf("strlen message : %d\n%s\n",strlen(message),message);
 	write(ta_socket,message,strlen(message));
 }
-int lecture_s(int ta_socket) {
+int lecture_s(int ta_socket, int id) {
 	char message[TLIM];
 	char garde_message[TLIM];
 	int n;
 	if ((n=read(ta_socket, message, TLIM))>0) strncpy(garde_message,message,n);
 	else strcpy(garde_message,"pas de reponse");
-	set_message(garde_message);
+	set_message(garde_message, id);
 }
 
 void quitter(int ta_socket) {
@@ -109,42 +109,42 @@ void lancement_service(int ta_socket) {
 	if ((n=read(ta_socket, message, TLIM))>0) strncpy(nom,message,n);
 	else strcpy(nom,"sombre inconnu");
 	banniere(nom);
-	ecriture_s(ta_socket);
+	ecriture_s(ta_socket, id);
 	while (lecture("menu.txt")) {
-		ecriture_s(ta_socket);
+		ecriture_s(ta_socket, id);
 	}
 	while (choix) {
-		lecture_s(ta_socket);
+		lecture_s(ta_socket, id);
 		sleep(1);
 		if (sscanf(get_message(),"%d",&choix)>0) {
 			n=0;
 			switch(choix) {
 				case 1 : 
 					while (liste_fichiers("refs")) {
-						ecriture_s(ta_socket);
+						ecriture_s(ta_socket, id);
 					}
 					break;
 				case 2 : 
 					strcpy(message,"quel referentiel? ");
-					set_message(message);
-					ecriture_s(ta_socket);
-					lecture_s(ta_socket);
+					set_message(message, id);
+					ecriture_s(ta_socket, id);
+					lecture_s(ta_socket, id);
 					if (sscanf(get_message(),"%s",message)>0) {
 						chdir("refs");
 						while ((n=lecture(message))==1) {
-							ecriture_s(ta_socket);
+							ecriture_s(ta_socket, id);
 						}
-						if (n<0) ecriture_s(ta_socket);
+						if (n<0) ecriture_s(ta_socket, id);
 						chdir("..");
 					}
 					else {
-						ecriture_s(ta_socket);
+						ecriture_s(ta_socket, id);
 					}
 					break;
 				case 3 :
 					strcpy(message,"virus LOADED!!!\n");
-					set_message(message);
-					ecriture_s(ta_socket);
+					set_message(message, id);
+					ecriture_s(ta_socket, id);
 					break;
 				case 4 : 
 					choix = 0;
@@ -158,14 +158,14 @@ void lancement_service(int ta_socket) {
 				default :
 					printf("je n'ai pas reconnu le choix\n");
 					strcpy(message,"je ne comprends pas...\n");
-					set_message(message);
-					ecriture_s(ta_socket);
+					set_message(message, id);
+					ecriture_s(ta_socket, id);
 					break;
 			}
 		}
 		else {
 			while (lecture("menu.txt")) {
-				ecriture_s(ta_socket);
+				ecriture_s(ta_socket, id);
 			}
 
 		}
