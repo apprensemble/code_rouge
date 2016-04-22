@@ -86,18 +86,19 @@ int lecture_s(int ta_socket, int id) {
 	set_message(garde_message, id);
 }
 
-void quitter(int ta_socket) {
+void quitter(int ta_socket, int id) {
 	//fermeture des connexions
 	pthread_mutex_lock(&lock);
 	compteur--;
-	printf("fermeture thread %d\n",compteur);
+	push_id(id);
+	printf("fermeture thread %d - id %d\n",compteur, id);
 	pthread_mutex_unlock(&lock);
 	close(ta_socket);
 	pthread_exit();
 }
 
 //c'est le vrai main. le coeur du service
-void lancement_service(int ta_socket) {
+void lancement_service(int ta_socket, int id) {
 	//int ta_socket = *(int*) t_socket;
 
 	int n;
@@ -108,19 +109,19 @@ void lancement_service(int ta_socket) {
 	char nom[20] = "";
 	if ((n=read(ta_socket, message, TLIM))>0) strncpy(nom,message,n);
 	else strcpy(nom,"sombre inconnu");
-	banniere(nom);
+	banniere(nom, id);
 	ecriture_s(ta_socket, id);
-	while (lecture("menu.txt")) {
+	while (lecture("menu.txt", id)) {
 		ecriture_s(ta_socket, id);
 	}
 	while (choix) {
 		lecture_s(ta_socket, id);
 		sleep(1);
-		if (sscanf(get_message(),"%d",&choix)>0) {
+		if (sscanf(get_message(id),"%d",&choix)>0) {
 			n=0;
 			switch(choix) {
 				case 1 : 
-					while (liste_fichiers("refs")) {
+					while (liste_fichiers("refs", id)) {
 						ecriture_s(ta_socket, id);
 					}
 					break;
@@ -129,13 +130,13 @@ void lancement_service(int ta_socket) {
 					set_message(message, id);
 					ecriture_s(ta_socket, id);
 					lecture_s(ta_socket, id);
-					if (sscanf(get_message(),"%s",message)>0) {
-						chdir("refs");
-						while ((n=lecture(message))==1) {
+					if (sscanf(get_message(id),"%s",message)>0) {
+						//chdir("refs");
+						while ((n=lecture(message, id))==1) {
 							ecriture_s(ta_socket, id);
 						}
 						if (n<0) ecriture_s(ta_socket, id);
-						chdir("..");
+						//chdir("..");
 					}
 					else {
 						ecriture_s(ta_socket, id);
@@ -153,7 +154,7 @@ void lancement_service(int ta_socket) {
 					set_message(message);
 					ecriture_s(ta_socket);
 					*/
-					quitter(ta_socket);
+					quitter(ta_socket, id);
 					break;
 				default :
 					printf("je n'ai pas reconnu le choix\n");
@@ -164,7 +165,7 @@ void lancement_service(int ta_socket) {
 			}
 		}
 		else {
-			while (lecture("menu.txt")) {
+			while (lecture("menu.txt", id)) {
 				ecriture_s(ta_socket, id);
 			}
 
@@ -186,11 +187,14 @@ void connexion_individuelle(void* m_socket) {
 	pthread_mutex_lock(&lock);
 	int ma_socket = *(int*) m_socket;
 	int ta_socket;
+	int id = pop_id();
+	printf("--- %d\n",id);
 	struct sockaddr_in client;
 	creation_canal(ma_socket,&ta_socket,&client);
 	//close(ma_socket);
 	pthread_mutex_unlock(&lock);
-	lancement_service(ta_socket);
+	printf("lancement service\n");
+	lancement_service(ta_socket, id);
 
 
 }
@@ -206,6 +210,7 @@ int main(int argc,int **argv) {
 		perror("echec de la creation du lock \n");
 		exit(1);
 	}
+charge_id();
 
 
 	signal(SIGPIPE, pipe_handler);

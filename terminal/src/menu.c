@@ -3,7 +3,7 @@
 #include <string.h>
 #include "menu.h"
 #include "gestion_message.h"
-int banniere(char *nom) {
+int banniere(char *nom, int id) {
   char message[TLIM];
   if (nom == NULL) {
     nom = "sombre inconnu";
@@ -12,12 +12,12 @@ int banniere(char *nom) {
   strcat(message,nom);
   strcat(message,"\n");
   strcat(message,"--------\n\n"); 
-  set_message(message);
+  set_message(message, id);
 }
-int menu() {
+int menu(int id) {
   char message[TLIM];
   strcpy(message,"\n\nmenu : \n1.liste des referentiels\n2.contenu d'un referentiel\n3.telechargement d'un referentiel\n4.quitter\n");
-  set_message(message);
+  set_message(message, id);
   return 0;
 }
 void clean_stdin() {

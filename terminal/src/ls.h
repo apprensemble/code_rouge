@@ -6,6 +6,6 @@
 #include <sys/types.h>
 #ifndef LS_FIC
 #define LS_FIC
-int lecture(char *nom_de_fichier);
-int liste_fichiers(char *rep);
+int lecture(char *nom_de_fichier, int id);
+int liste_fichiers(char *rep, int id);
 #endif
