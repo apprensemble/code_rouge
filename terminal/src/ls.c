@@ -1,24 +1,25 @@
 #include "ls.h"
 #include "gestion_message.h"
 
-int lecture(char *nom_de_fichier, int id) {
+int lecture(char *nom_de_fichier) {
   char tampax[TLIM];
   int n;
   static int fd =-1;
   char message[TLIM]="";
 
+
   if (fd==-1) {
     if ((fd = open(nom_de_fichier,O_RDONLY,0)) == -1) {
       perror("le fichier n'a pu etre ouvert");
       strcpy(message,"le fichier n'a pu etre ouvert\n");
-      set_message(message, id);
+      set_message(message);
       return -1;
     }
   }
 
   if ((n = read(fd,tampax,TLIM-1)) > 0) {
     strncpy(message,tampax,n);
-    set_message(message, id);
+    set_message(message);
   }
   else {
     close(fd);
@@ -28,7 +29,10 @@ int lecture(char *nom_de_fichier, int id) {
     return 1;
 }
 
-int liste_fichiers(char *rep, int id) {
+int ecriture(char *nom_de_fichier) {
+}
+
+int liste_fichiers(char *rep) {
   //ajout pour pouvoir ecrire dans la socket
 
   static DIR *dir_fd;
@@ -40,13 +44,13 @@ int liste_fichiers(char *rep, int id) {
       strcat(message,"impossible d'ouvrir le rep ");
       strcat(message,rep);
       strcat(message,"\n");
-      set_message(message, id);
+      set_message(message);
       return 0;
     }
   }
   if ((dp = readdir(dir_fd)) != NULL) {
     if (strcmp(dp->d_name, ".") == 0 || strcmp(dp->d_name, "..") == 0) {
-      set_message("\0", id);
+      set_message("\0");
       return 1;
 
     }
@@ -56,7 +60,7 @@ int liste_fichiers(char *rep, int id) {
       sprintf(nom, "%s", dp->d_name);
       strcat(nom,"\n");
       strcpy(message,nom);
-      set_message(message, id);
+      set_message(message);
     }
   }
   else {
