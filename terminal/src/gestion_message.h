@@ -1,7 +1,8 @@
 #ifndef MA_GESTION
 #define MA_GESTION
-#define TLIM 256 //je ne suis pas capable de decouper un nom de fichier et la taille max d'un fichier est 255car
+#define TLIM 256 
 #define BUSLIM 5
+//je ne suis pas capable de decouper un nom de fichier et la taille max d'un fichier est 255car
 int set_message(char message[TLIM]);
 char* get_message();
 int pop_id();

@@ -11,7 +11,7 @@
 static int bus_ids[BUSLIM];
 //static int pos = BUSLIM - 1; //pos pour position de l'id
 static int pos = 0;
-static char message[TLIM];
+static char message[TLIM] = "bienvenue";
 void charge_id() {
 	int i;
 	for (i = 0;i < BUSLIM; i++) bus_ids[i] = i;

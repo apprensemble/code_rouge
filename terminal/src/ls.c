@@ -20,13 +20,13 @@ int lecture(char *nom_de_fichier) {
   if ((n = read(fd,tampax,TLIM-1)) > 0) {
     strncpy(message,tampax,n);
     set_message(message);
+    return 1;
   }
   else {
     close(fd);
     fd=-1;
-    return 0;
   }
-    return 1;
+    return 0;
 }
 
 int ecriture(char *nom_de_fichier) {

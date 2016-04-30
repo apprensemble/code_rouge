@@ -4,7 +4,7 @@
 #include "menu.h"
 #include "gestion_message.h"
 int banniere(char *nom) {
-  char message[TLIM];
+  char message[TLIM] = "";
   if (nom == NULL) {
     nom = "sombre inconnu";
   }
@@ -23,8 +23,9 @@ int menu() {
 void clean_stdin() {
   int c;
   while(c=getchar()!='\n');
+	//while(c=getchar()!=EOF);
 }
-int choix() {
+int choix_old() {
   int c;
   c=0;
   printf("choix : ");

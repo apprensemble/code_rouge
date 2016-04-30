@@ -12,31 +12,43 @@ TLIM	gestion_message.h	3;"	d
 action_thread1	thread.c	/^void *action_thread1(void *message) {$/;"	f
 action_thread2	thread.c	/^int action_thread2(pthread_t lautre) {$/;"	f
 banniere	menu.c	/^int banniere(char *nom) {$/;"	f
+bonjour	thread2.c	/^void *bonjour (void* msg) {$/;"	f
 bus_ids	gestion_message.c	/^static int bus_ids[BUSLIM];$/;"	v	file:
 charge_id	gestion_message.c	/^void charge_id() {$/;"	f
-choix	menu.c	/^int choix() {$/;"	f
+choix	client.c	/^int choix(int ma_socket, char message[TLIM]) {$/;"	f
+choix_old	menu.c	/^int choix_old() {$/;"	f
 clean_stdin	menu.c	/^void clean_stdin() {$/;"	f
 compteur	serveur.c	/^static int compteur = 0;$/;"	v	file:
 connexion_individuelle	serveur.c	/^void connexion_individuelle(void* m_socket) {$/;"	f
+cr	thread2.c	/^	const char *cr;$/;"	m	struct:__anon1	file:
 creation_canal	serveur.c	/^creation_canal(int ma_socket,int *ta_socket,struct sockaddr_in *client) {$/;"	f
 def_serveur	serveur.c	/^int def_serveur(struct sockaddr_in *server) {$/;"	f
-ecriture_s	serveur.c	/^int ecriture_s(int ta_socket, int id) {$/;"	f
-get_message	gestion_message.c	/^char* get_message (int id) {$/;"	f
+ecriture	ls.c	/^int ecriture(char *nom_de_fichier) {$/;"	f
+ecriture_s	serveur.c	/^int ecriture_s(int ta_socket) {$/;"	f
+emission	client.c	/^void emission(int ma_socket, char message[TLIM]) {$/;"	f
+get_message	gestion_message.c	/^char* get_message () {$/;"	f
+get_pos	gestion_message.c	/^int get_pos() {$/;"	f
+hello	thread2.c	/^void *hello (void* msg, void* fin) {$/;"	f
 init_serveur	serveur.c	/^int init_serveur(struct sockaddr_in *server) { $/;"	f
-lancement_service	serveur.c	/^void lancement_service(int ta_socket, int id) {$/;"	f
+lancement_service	serveur.c	/^void lancement_service(int ta_socket) {$/;"	f
 lecture	ls.c	/^int lecture(char *nom_de_fichier) {$/;"	f
-lecture_s	serveur.c	/^int lecture_s(int ta_socket, int id) {$/;"	f
+lecture_s	serveur.c	/^int lecture_s(int ta_socket) {$/;"	f
 liste_fichiers	ls.c	/^int liste_fichiers(char *rep) {$/;"	f
-lock	serveur.c	/^pthread_mutex_t lock;$/;"	v
 main	client.c	/^int main (int argc, char *argv[]) {$/;"	f
 main	serveur.c	/^int main(int argc,int **argv) {$/;"	f
 main	thread.c	/^int main(int argc, char **argv) {$/;"	f
+main	thread2.c	/^int main() {$/;"	f
 menu	menu.c	/^int menu() {$/;"	f
-message	gestion_message.c	/^static char message[BUSLIM][TLIM];$/;"	v	file:
+message	gestion_message.c	/^static char message[TLIM];$/;"	v	file:
+msg	thread2.c	/^	const char *msg;$/;"	m	struct:__anon1	file:
+param	thread2.c	/^} param;$/;"	t	typeref:struct:__anon1	file:
 pipe_handler	client.c	/^void pipe_handler(int signum) {$/;"	f
 pipe_handler	serveur.c	/^void pipe_handler(int signum) {$/;"	f
 pop_id	gestion_message.c	/^int pop_id() {$/;"	f
-pos	gestion_message.c	/^static int pos = BUSLIM - 1; \/\/pos pour position de l'id$/;"	v	file:
+pos	gestion_message.c	/^static int pos = 0;$/;"	v	file:
 push_id	gestion_message.c	/^void push_id(int id) {$/;"	f
-quitter	serveur.c	/^void quitter(int ta_socket, int id) {$/;"	f
-set_message	gestion_message.c	/^int set_message(char nouveau_message[TLIM], int id) {$/;"	f
+quitter	client.c	/^void quitter(int status) {$/;"	f
+quitter	serveur.c	/^void quitter(int ta_socket) {$/;"	f
+reception	client.c	/^int reception(int ma_socket, int fd) {$/;"	f
+set_message	gestion_message.c	/^int set_message(char nouveau_message[TLIM]) {$/;"	f
+shello	thread2.c	/^void *shello (void *m) {$/;"	f

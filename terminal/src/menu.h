@@ -3,6 +3,6 @@
 int banniere(char *nom);
 int menu();
 void clean_stdin();
-int choix();
+int choix_old();
 int accueil();
 #endif
