@@ -79,9 +79,11 @@ creation_canal(int ma_socket,int *ta_socket,struct sockaddr_in *client) {
 int ecriture_s(int ta_socket) {
 	char message[TLIM];
 	strcpy(message,get_message());
+	int n = strlen(message);
+	printf("%s de taille %d\n",message,n);
 	//ajouter un mode debug?
 	//printf("strlen message : %d\n%s\n",strlen(message),message);
-	write(ta_socket,message,strlen(message));
+	write(ta_socket,message,n);
 }
 int lecture_s(int ta_socket) {
 	char message[TLIM];
@@ -91,10 +93,12 @@ int lecture_s(int ta_socket) {
 	if ((n=read(ta_socket, message, TLIM))>0) strncpy(garde_message,message,n);
 	else strcpy(garde_message,"pas de reponse");
 	set_message(garde_message);
+	return n;
 }
 
 void quitter(int ta_socket) {
 	//fermeture des connexions
+	printf("bye bye...\n");
 	close(ta_socket);
 	pop_id();
 	exit(0);
@@ -109,26 +113,20 @@ void lancement_service(int ta_socket) {
 	choix = 1;
 	char mMessage[TLIM] = "";
 	char reponse[TLIM] = "";
-	char nom[20] = "";
-	if ((n=read(ta_socket, mMessage, TLIM))>0) strncpy(nom,mMessage,n);
+	char nom[TLIM] = "";
+	if ((n=read(ta_socket, nom, TLIM))>0);
 	else strcpy(nom,"sombre inconnu");
 	banniere(nom);
 	ecriture_s(ta_socket);
-	liste_referentiel(ta_socket);
 	while (choix) {
-	sleep(1);
-		n=0;
-		lecture_s(ta_socket);
+		n = lecture_s(ta_socket);
 		if (sscanf(get_message(),"%s",mMessage)>0) {
-			//chdir("refs");
 			while ((n=lecture(mMessage))==1) {
 				ecriture_s(ta_socket);
 			}
 			if (n<0) {
-				lecture("erreur.txt");
-				ecriture_s(ta_socket);
+				liste_referentiel(ta_socket);
 			}
-			//chdir("..");
 		}
 		if (!strcmp(mMessage,"3")) {
 			choix = 0;
@@ -145,7 +143,7 @@ void pipe_handler(int signum) {
 }
 
 void connexion_individuelle(void* m_socket) {
-	//cree un canal puis lance le service grace a ma_socket
+	//cree un canal puis lance le service grace a ta_socket
 
 
 	int ma_socket = *(int*) m_socket;
@@ -171,7 +169,6 @@ int main(int argc,int **argv) {
 
 	int i;
 	i=0;
-	//un peu fragile comme construction mais bon ca fait bcp de notions d'un coups
 	while(1) {
 		pid_t pid;
 		int status;

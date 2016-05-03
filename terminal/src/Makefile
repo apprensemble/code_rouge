@@ -14,3 +14,8 @@ clean_socket :
 	rm serveur client
 clean : clean_socket
 	rm menu.o ls.o gestion_message.o
+test :
+	mkdir ../test1;cp -f client ../test1;done
+	mkdir ../test2;cp -f client ../test2;done
+	mkdir ../test3;cp -f client ../test3;done
+	mkdir ../test4;cp -f client ../test4;done

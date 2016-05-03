@@ -13,7 +13,14 @@ void pipe_handler(int signum) {
 	exit(signum);
 
 }
-
+int creation_fd(char message[]) {
+	int fd;
+	if ((fd = open(message,O_CREAT | O_CLOEXEC | O_WRONLY,S_IRUSR | S_IWUSR)) == -1) {
+		fprintf(stderr,"le fichier %s n'a pu etre cree\n",message);
+		fd = 1;
+	}
+	return fd;
+}
 void emission(int ma_socket, char message[TLIM]) {
 	send(ma_socket , &message, TLIM , 0);
 	//clean_stdin();
@@ -21,8 +28,9 @@ void emission(int ma_socket, char message[TLIM]) {
 int reception(int ma_socket, int fd) {
 	int n = 0;
 	char reponse_server[TLIM];
-	if ((n=read(ma_socket, reponse_server, TLIM))>0) {
+	if ((n=read(ma_socket, reponse_server, TLIM-1))>0) {
 		write(fd,reponse_server,n);
+		if (fd != 1) write(1,reponse_server,n);
 	}
 	return n;
 }
@@ -107,7 +115,7 @@ int main (int argc, char *argv[]) {
 
 	int n = 1;
 	int c;
-	int fd = 1; //stdout
+	int fd = creation_fd("menu"); //stdout
 	char *nom_fichier;
 	c = 1;
 	while (strcmp(message,"3")) {
@@ -118,19 +126,15 @@ int main (int argc, char *argv[]) {
 			strcpy(message,"");
 			printf("\nnom fichier : ");
 			scanf("%s", message);
-			/*
-    if ((fd = open(message,O_CREAT | O_CLOEXEC | O_WRONLY,S_IRUSR | S_IWUSR)) == -1) {
-			fprintf(stderr,"le fichier %s n'a pu etre cree\n",message);
-			fd = 1;
-		}
-		*/
+			fd = creation_fd(message);
 			send(ma_socket, &message, TLIM , 0);
 			clean_stdin();
 		}
 		//printf("choix local ?\n");
 	}
+	if (fd != 1) close(fd);
 	close(ma_socket);
-	return 0;
+	exit(0);
 
 }
 
