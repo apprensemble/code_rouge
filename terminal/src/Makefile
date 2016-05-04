@@ -19,3 +19,4 @@ test :
 	mkdir ../test2;cp -f client ../test2;done
 	mkdir ../test3;cp -f client ../test3;done
 	mkdir ../test4;cp -f client ../test4;done
+	./test.sh
