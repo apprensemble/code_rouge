@@ -121,14 +121,13 @@ int main (int argc, char *argv[]) {
 	while (strcmp(message,"3")) {
 		n = reception(ma_socket, fd);
 		printf("n : %d\n",n);
-		if (n<TLIM) {
+		if (n<TLIM-1) {
 			if (fd != 1) close(fd);
 			strcpy(message,"");
 			printf("\nnom fichier : ");
 			scanf("%s", message);
 			fd = creation_fd(message);
 			send(ma_socket, &message, TLIM , 0);
-			clean_stdin();
 		}
 		//printf("choix local ?\n");
 	}

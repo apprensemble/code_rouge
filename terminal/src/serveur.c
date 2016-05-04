@@ -33,8 +33,7 @@ int def_serveur(struct sockaddr_in *server) {
 }
 
 void liste_referentiel(int ta_socket) {
-	lecture("entete_ref");
-	ecriture_s(ta_socket);
+	while (lecture("entete_ref") == 1) ecriture_s(ta_socket);
 		while (liste_fichiers(".")) {
 			ecriture_s(ta_socket);
 		}
@@ -90,7 +89,7 @@ int lecture_s(int ta_socket) {
 	char garde_message[TLIM];
 	int n;
 	//if ((n=read(ta_socket, message, TLIM))>0 && n<=TLIM) strncpy(garde_message,message,n);
-	if ((n=read(ta_socket, message, TLIM))>0) strncpy(garde_message,message,n);
+	if ((n=read(ta_socket, message, TLIM-1))>0) strncpy(garde_message,message,n);
 	else strcpy(garde_message,"pas de reponse");
 	set_message(garde_message);
 	return n;
@@ -114,7 +113,7 @@ void lancement_service(int ta_socket) {
 	char mMessage[TLIM] = "";
 	char reponse[TLIM] = "";
 	char nom[TLIM] = "";
-	if ((n=read(ta_socket, nom, TLIM))>0);
+	if ((n=read(ta_socket, nom, TLIM-1))>0);
 	else strcpy(nom,"sombre inconnu");
 	banniere(nom);
 	ecriture_s(ta_socket);
@@ -125,6 +124,7 @@ void lancement_service(int ta_socket) {
 				ecriture_s(ta_socket);
 			}
 			if (n<0) {
+				while (lecture("erreur.txt") == 1) ecriture_s(ta_socket);
 				liste_referentiel(ta_socket);
 			}
 		}

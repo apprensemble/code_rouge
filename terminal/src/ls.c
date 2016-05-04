@@ -13,6 +13,7 @@ int lecture(char *nom_de_fichier) {
       perror("le fichier n'a pu etre ouvert");
       strcpy(message,"le fichier n'a pu etre ouvert\n");
       set_message(message);
+			fd = -1;
       return -1;
     }
   }
