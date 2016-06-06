@@ -32,20 +32,41 @@ int def_serveur(struct sockaddr_in *server) {
 	return 0;
 }
 
-int creation_liste() {
-	int fd;
-	if ((fd = open("liste_ref",O_CREAT | O_CLOEXEC | O_WRONLY,S_IRUSR | S_IWUSR)) == -1) {
-		fprintf(stderr,"le fichier %s n'a pu etre cree\n","liste_ref");
-		exit(1);
-	}
+void ajout_info_liste(int fd) {
 	while (lecture("entete_ref") == 1) write(fd,get_message(),size_message());
 	while (liste_fichiers(".")) {
 		write(fd,get_message(),size_message());
 	}
+	close(fd);
+}
+
+creation_message_erreur(char nom[]) {
+	int fd = creation_fichier_liste("erreur.txt");
+	set_message("le fichier suivant n'existe pas : ");
+	write(fd,get_message(),size_message());
+	write(fd,nom,strlen(nom));
+	set_message("\n\n");
+	write(fd,get_message(),size_message());
+	ajout_info_liste(fd);
+}
+
+diffusion_erreur(int ta_socket) {
+	while (lecture("erreur.txt") == 1) ecriture_s(ta_socket);
+}
+
+int creation_fichier_liste(char nom[]) {
+	int fd;
+	if ((fd = open(nom,O_CREAT | O_CLOEXEC | O_WRONLY,S_IRUSR | S_IWUSR)) == -1) {
+		fprintf(stderr,"le fichier %s n'a pu etre cree\n",nom);
+		exit(1);
+	}
 	return fd;
 }
+
+
 void liste_referentiel(int ta_socket) {
-	int liste_ref = creation_liste();
+	int liste_ref = creation_fichier_liste("liste_ref");
+	ajout_info_liste(liste_ref);
 	while (lecture("liste_ref") == 1) ecriture_s(ta_socket);
 }
 //creation socket qu'on attache au serveur
@@ -132,15 +153,14 @@ void lancement_service(int ta_socket) {
 				ecriture_s(ta_socket);
 			}
 			if (n<0) {
-				while (lecture("erreur.txt") == 1) ecriture_s(ta_socket);
+				creation_message_erreur(mMessage);
+				diffusion_erreur(ta_socket);
+				//while (lecture("erreur.txt") == 1) ecriture_s(ta_socket);
 			}
 		}
 		if (!strcmp(mMessage,"q") || !strcmp(mMessage,"Q")) {
 			choix = 0;
 			quitter(ta_socket);
-		}
-		if (!strcmp(mMessage,"l")) {
-			liste_referentiel(ta_socket);
 		}
 	}
 }
