@@ -118,9 +118,8 @@ int main (int argc, char *argv[]) {
 	int fd = creation_fd("menu"); //stdout
 	char *nom_fichier;
 	c = 1;
-	while (strcmp(message,"3")) {
+	while (strcmp(message,"Q") && strcmp(message,"q")) {
 		n = reception(ma_socket, fd);
-		printf("n : %d\n",n);
 		if (n<TLIM-1) {
 			if (fd != 1) close(fd);
 			strcpy(message,"");
@@ -132,6 +131,7 @@ int main (int argc, char *argv[]) {
 		//printf("choix local ?\n");
 	}
 	if (fd != 1) close(fd);
+	sleep(1);
 	close(ma_socket);
 	exit(0);
 

@@ -32,11 +32,21 @@ int def_serveur(struct sockaddr_in *server) {
 	return 0;
 }
 
+int creation_liste() {
+	int fd;
+	if ((fd = open("liste_ref",O_CREAT | O_CLOEXEC | O_WRONLY,S_IRUSR | S_IWUSR)) == -1) {
+		fprintf(stderr,"le fichier %s n'a pu etre cree\n","liste_ref");
+		exit(1);
+	}
+	while (lecture("entete_ref") == 1) write(fd,get_message(),size_message());
+	while (liste_fichiers(".")) {
+		write(fd,get_message(),size_message());
+	}
+	return fd;
+}
 void liste_referentiel(int ta_socket) {
-	while (lecture("entete_ref") == 1) ecriture_s(ta_socket);
-		while (liste_fichiers(".")) {
-			ecriture_s(ta_socket);
-		}
+	int liste_ref = creation_liste();
+	while (lecture("liste_ref") == 1) ecriture_s(ta_socket);
 }
 //creation socket qu'on attache au serveur
 int init_serveur(struct sockaddr_in *server) { 
@@ -106,7 +116,6 @@ void quitter(int ta_socket) {
 //c'est le vrai main. le coeur du service
 void lancement_service(int ta_socket) {
 
-	chdir("refs");
 	int n;
 	int choix;
 	choix = 1;
@@ -115,8 +124,7 @@ void lancement_service(int ta_socket) {
 	char nom[TLIM] = "";
 	if ((n=read(ta_socket, nom, TLIM-1))>0);
 	else strcpy(nom,"sombre inconnu");
-	banniere(nom);
-	ecriture_s(ta_socket);
+	liste_referentiel(ta_socket);
 	while (choix) {
 		n = lecture_s(ta_socket);
 		if (sscanf(get_message(),"%s",mMessage)>0) {
@@ -125,12 +133,14 @@ void lancement_service(int ta_socket) {
 			}
 			if (n<0) {
 				while (lecture("erreur.txt") == 1) ecriture_s(ta_socket);
-				liste_referentiel(ta_socket);
 			}
 		}
-		if (!strcmp(mMessage,"3")) {
+		if (!strcmp(mMessage,"q") || !strcmp(mMessage,"Q")) {
 			choix = 0;
 			quitter(ta_socket);
+		}
+		if (!strcmp(mMessage,"l")) {
+			liste_referentiel(ta_socket);
 		}
 	}
 }
@@ -157,6 +167,7 @@ void connexion_individuelle(void* m_socket) {
 
 int main(int argc,int **argv) {
 	char *message, reponse_server[TLIM];
+	chdir("refs");
 	//charge_id();
 
 
@@ -183,5 +194,5 @@ int main(int argc,int **argv) {
 
 	printf("compteur %d\n",compteur);
 	printf("good bye\n");
-	exit(0);
+exit(0);
 }

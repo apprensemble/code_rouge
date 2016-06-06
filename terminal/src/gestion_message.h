@@ -9,5 +9,6 @@ int pop_id();
 void push_id(int id);
 void charge_id();
 int get_pos();
+int size_message();
 #endif
 

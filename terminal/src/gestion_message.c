@@ -22,6 +22,10 @@ int set_message(char nouveau_message[TLIM]) {
 char* get_message () {
   return message;
 }
+
+int size_message() {
+	return strlen(message);
+}
 //je ne fais pas de lock et compte sur une gestion en amont
 int pop_id() {
 		printf("poped %d\n",get_pos());
