@@ -1,0 +1,122 @@
+html, body, h1, form, fieldset, legend, ol, li {
+	margin: 0;
+	padding: 0;
+	}
+
+body {
+	background: #ffffff;
+	color: #111111;
+	font-family: "Times New Roman", Times, serif;
+	padding: 20px;
+	}
+
+h1 {
+	font-size: 30px;
+	margin-left: 12%;
+	margin-bottom: 40px;
+	}
+
+h2 {
+	font-size: 20px;
+	margin-bottom: 20px;
+	margin-left: 12%;
+	}
+
+
+h3 {
+	font-size: 13px;
+	align:center;
+	margin-bottom: 1px;
+	margin-left: 48%;
+	}
+
+
+
+
+
+table {
+ border-collapse:collapse;
+ margin-top: 60px;
+ margin-bottom: 60px;
+ width:80%;
+ }
+th {
+ border:1px solid black;
+font-size : 16px;
+}
+
+
+td {
+ border:1px solid black;
+ font-size : 14px;
+ }
+td {
+ text-align:center;
+ }
+caption {
+ font-weight:bold
+ }
+
+form#client {
+		margin-left: 12%;
+		background: rgba(180,180,180,.3);
+		align:center;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-khtml-border-radius: 5px;
+		border-radius: 5px;
+		counter-reset: fieldsets;
+		padding: 12px;
+		width: 425px;
+		
+		}
+		
+	
+		form#client fieldset {
+			border: none;
+			margin-bottom: 12px;
+			}
+		
+		form#client fieldset:last-of-type {
+			margin-bottom: 0;
+			}
+			
+			form#client legend {
+				color: #FF6600;
+				font-size: 25px;
+				font-weight: bold;
+				padding-bottom: 10px;
+				text-shadow: 0 1px 1px #000000;
+				}
+
+form#total {
+		margin-left: 12%;
+		background: rgba(180,180,180,.3);
+		align:center;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-khtml-border-radius: 5px;
+		border-radius: 5px;
+		counter-reset: fieldsets;
+		padding: 12px;
+		width: 230px;
+		
+		}
+		
+	
+		form#total fieldset {
+			border: none;
+			margin-bottom: 12px;
+			}
+		
+		form#total fieldset:last-of-type {
+			margin-bottom: 0;
+			}
+			
+			form#total legend {
+				color: #FF6600;
+				font-size: 25px;
+				font-weight: bold;
+				padding-bottom: 10px;
+				text-shadow: 0 1px 1px #000000;
+				}

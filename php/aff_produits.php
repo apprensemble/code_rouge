@@ -29,23 +29,13 @@ $CommentProduit="";
 $PhotoProduit="";
 
 
-try
-{
-	// On se connecte à MySQL
-$bdd = new PDO('mysql:host=10.7.0.1;dbname=gestion_site;charset=utf8', 'root', 'mysqlRoot.');
-
-}
-catch(Exception $e)
-{
-	// En cas d'erreur, on affiche un message et on arrête tout
-        die('Erreur : '.$e->getMessage());
-}
+include 'connect_bd.php'; // connexion à la base de données MySQL
 
 
 if(!empty($_GET['aff_id'])){
 	
 
-	$sql_sel = "select * from produits Where Code ='".$_GET['aff_id']."'" ;
+	$sql_sel = "select * from produit Where code_prod ='".$_GET['aff_id']."'" ;
 				//echo $sql_sel;
 	$rep = $bdd->query($sql_sel);
 			
@@ -53,16 +43,16 @@ if(!empty($_GET['aff_id'])){
 
 			while ($donnees = $rep->fetch())
 			{
-			$CodeProduit= $donnees['Code'];;
-			$LibelleProduit= $donnees['Libelle'];
-			$DescCourt= $donnees['Descriptif_court'];
-			$DescLong= $donnees['Descriptif_long'];
-			$PrixHTProduit=$donnees['Prix_HT'];
+			$CodeProduit= $donnees['code_prod'];;
+			$LibelleProduit= $donnees['lib_prod'];
+			$DescCourt= $donnees['desc_court'];
+			$DescLong= $donnees['desc_long'];
+			$PrixHTProduit=$donnees['prix_HT'];
 			$TvaProduit=$donnees['TVA'];
-			$DateDebProduit=$donnees['Date_debut'];
-			$DateFinProduit=$donnees['Date_fin'];
-			$CommentProduit=$donnees['Commentaires'];
-			$PhotoProduit=$donnees['Photo'];
+			$DateDebProduit=$donnees['dt_debut'];
+			$DateFinProduit=$donnees['dt_fin'];
+			$CommentProduit=$donnees['commentaires'];
+			$PhotoProduit=$donnees['photo'];
 			}
 			
 			$rep->closeCursor(); // Termine le traitement de la requête
@@ -227,8 +217,9 @@ if(!empty($_GET['aff_id'])){
 		<tr class="dmFond2">
 			<td class="dmContour2"><img src="/images/dot.gif" alt="" width="1" height="20"></td>
 			<td><img src="/images/dot.gif" alt="" width="10" height="30"></td> 
-			<td width="50%" class="dmTitre" title="" ><img src="<?php echo $Dossier.$PhotoProduit ?>" alt="" width="200" height="200"></td> 
-			<td width="50%" class="dmTitre" title="" ><?php echo $PhotoProduit ?></TD> 			
+			<td width="30%" class="dmTitre" title="" ><?php echo $PhotoProduit ?></TD> 
+			<td width="70%" class="dmTitre" title="" ><img src="<?php echo $Dossier.$PhotoProduit ?>" alt=""></td> 
+			
 			<td><img src="/images/dot.gif" alt="" width="1" height="1"></td> 				
 			<td class="dmContour2"><img src="/images/dot.gif" alt="" width="1" height="60"></td>                 
 		</tr>

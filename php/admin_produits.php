@@ -18,22 +18,16 @@
 
 
 <?php
-try
-{
-	// On se connecte à MySQL
-$bdd = new PDO('mysql:host=10.7.0.1;dbname=gestion_site;charset=utf8', 'root', 'mysqlRoot.');
-}
-catch(Exception $e)
-{
-	// En cas d'erreur, on affiche un message et on arrête tout
-        die('Erreur : '.$e->getMessage());
-}
+
+
+include 'connect_bd.php'; // connexion à la base de données MySQL
+
 
 // Si tout va bien, on peut continuer
 	if(!empty($_GET['supp_id'])){
 		//echo $_GET['supp_id'];
 
-        $sql_del = "Delete from produits Where Code ='".$_GET['supp_id']."'" ;
+        $sql_del = "Delete from produit Where code_prod ='".$_GET['supp_id']."'" ;
         $bdd->exec($sql_del);
 		//echo $sql_del;
 
@@ -47,7 +41,7 @@ catch(Exception $e)
 <table width="750" border="0" cellspacing="2" cellpadding="3" align="CENTER">
         <tr>
             <td colspan="7" align="center" bgcolor="white">
-                <input type="button" value="Ajouter un produit" onclick="javascript : window.location='upd_utilisateur.asp';" class="bouton">
+                <input type="button" value="Ajouter un produit" onclick="javascript : window.location='upd_produits.php';" class="bouton">
             </td>
         </tr>
         <tr>
@@ -72,7 +66,7 @@ catch(Exception $e)
 
 
 <?php
-$reponse = $bdd->query('select * from produits');
+$reponse = $bdd->query('select * from produit');
 
 // On affiche chaque entrée une à une
 
@@ -87,22 +81,22 @@ while ($donnees = $reponse->fetch())
 
         <tr>
             <td class="ligneTab">
-                <b><?php  echo $donnees['Code']; ?></b>
+                <b><?php  echo $donnees['code_prod']; ?></b>
             </td>
 			<td class="ligneTab">
-                <b><?php  echo $donnees['Libelle']; ?></b>
+                <b><?php  echo $donnees['lib_prod']; ?></b>
             <td class="ligneTab">
-                <b><?php  echo $donnees['Prix_HT']; ?></b>
+                <b><?php  echo $donnees['prix_HT']; ?></b>
             </td>
             <td  width="13%" align="CENTER" class="ligneTab">
-                <input type="button" value="Détail" onclick="javascript: parent.bas.location.href = 'aff_produits.php?aff_id=<?php  echo $donnees['Code']; ?>';" class="bouton">
+                <input type="button" value="Détail" onclick="javascript: parent.bas.location.href = 'aff_produits.php?aff_id=<?php  echo $donnees['code_prod']; ?>';" class="bouton">
             </td>
             <td  width="13%" align="CENTER" class="ligneTab">
-                <input type="button" value="Modifier" onclick="javascript: parent.bas.location.href= 'upd_produits.php?upd_id=<?php  echo $donnees['Code']; ?>';" class="bouton">
+                <input type="button" value="Modifier" onclick="javascript: parent.bas.location.href= 'upd_produits.php?upd_id=<?php  echo $donnees['code_prod']; ?>';" class="bouton">
             </td>
             <td  width="14%" align="CENTER" class="ligneTab">
 			
-             <input type="button" value="Supprimer" onclick="javascript: verif_supprim ('/admin_produits.php?supp_id=<?php  echo $donnees['Code']; ?>');" class="bouton">
+             <input type="button" value="Supprimer" onclick="javascript: verif_supprim ('/admin_produits.php?supp_id=<?php  echo $donnees['code_prod']; ?>');" class="bouton">
             
             </td>
         </tr>
