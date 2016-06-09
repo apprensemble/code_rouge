@@ -1,5 +1,4 @@
-﻿<?php
-// On démarre la session AVANT d'écrire du code HTML
+﻿<?
 session_start();
 $code_client= "";			
 $mdp="";
@@ -49,7 +48,7 @@ if(!empty($_POST['saisie_form'])){
 	while ($donnees = $stmt->fetch())
 			{
 			$cpt_valide=true;
-				echo "je suis dans le while";
+				//echo "je suis dans le while";
 			$code_client= $donnees['code_client'];
 			$email= $donnees['email'];
 			$nom= $donnees['nom'];
