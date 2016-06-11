@@ -1,0 +1,56 @@
+/* app css stylesheet */
+
+.grisee
+{
+  background-color: #8c8c8c;
+  width="100%"
+}
+
+.fond
+{
+  background-color: #ffffff;
+  width="100%"
+}
+
+.entete
+{
+	background-color: #E3CC49;
+
+	/*background-color: #008080;*/
+}
+
+.image {
+    width: 10%;
+	height: 10%;
+    float: left;
+    background-color: red;
+}
+
+.tabs
+{
+	background-color: white;
+}
+
+.customradio {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #fafafa;
+    border: 1px solid #cacece; // circle border
+    padding: 6px;
+    border-radius: 50px;
+    display: inline-block;
+    position: relative;
+}
+
+.customradio:checked:after {
+content: '';
+width: 8px;
+height: 8px;
+border-radius: 50px;
+position: absolute;
+top: 2px;
+background: #094981;
+text-shadow: 0px;
+left: 2px;
+font-size: 32px;
+}

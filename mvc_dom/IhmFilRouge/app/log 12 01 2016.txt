@@ -1,0 +1,299 @@
+1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:00:27 GMT] "GET /app/js/app.js" "Mozilla/5.0 (Windows NT 6.
+1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:00:29 GMT] "GET /app/index.html" "Mozilla/5.0 (Windows NT 6
+.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:00:29 GMT] "GET /app/http//netdna.bootstrapcdn.com/twitter-
+bootstrap/2.3.2/css/bootstrap-combined.min.css" "Mozilla/5.0 (Windows NT 6.1; WO
+W64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:00:29 GMT] "GET /app/style.css" "Mozilla/5.0 (Windows NT 6.
+1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:00:29 GMT] "GET /app/js/app.js" "Mozilla/5.0 (Windows NT 6.
+1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:00:30 GMT] "GET /app/style.css" "Mozilla/5.0 (Windows NT 6.
+1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:03:53 GMT] "GET /app/index.html" "Mozilla/5.0 (Windows NT 6
+.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:03:53 GMT] "GET /app/bower_components%5Cboosted%5Cdist%5Ccs
+s%5Cboosted.min.css" "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:38.0; [eburo v4.0])
+ Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:03:53 GMT] "GET /app/style.css" "Mozilla/5.0 (Windows NT 6.
+1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:03:53 GMT] "GET /app/js/app.js" "Mozilla/5.0 (Windows NT 6.
+1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:03:54 GMT] "GET /app/style.css" "Mozilla/5.0 (Windows NT 6.
+1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:08:33 GMT] "GET /app/index.html" "Mozilla/5.0 (Windows NT 6
+.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:08:33 GMT] "GET /app/bower_components%5Cboosted%5Cdist%5Ccs
+s%5Cboosted.min.css" "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:38.0; [eburo v4.0])
+ Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:08:33 GMT] "GET /app/style.css" "Mozilla/5.0 (Windows NT 6.
+1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:08:33 GMT] "GET /app/js/app.js" "Mozilla/5.0 (Windows NT 6.
+1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:08:34 GMT] "GET /app/style.css" "Mozilla/5.0 (Windows NT 6.
+1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:12:46 GMT] "GET /app/index.html" "Mozilla/5.0 (Windows NT 6
+.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:12:46 GMT] "GET /app/bower_components%5Cbootstrap%5Cdist%5C
+css%5Cbootstrap.css" "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:38.0; [eburo v4.0])
+ Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:12:46 GMT] "GET /app/style.css" "Mozilla/5.0 (Windows NT 6.
+1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:12:46 GMT] "GET /app/js/app.js" "Mozilla/5.0 (Windows NT 6.
+1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:12:47 GMT] "GET /app/style.css" "Mozilla/5.0 (Windows NT 6.
+1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:25:43 GMT] "GET /app/index.html" "Mozilla/5.0 (Windows NT 6
+.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:25:43 GMT] "GET /app/bower_components%5Cbootstrap%5Cdist%5C
+css%5Cbootstrap.css" "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:38.0; [eburo v4.0])
+ Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:25:43 GMT] "GET /app/style.css" "Mozilla/5.0 (Windows NT 6.
+1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:25:43 GMT] "GET /app/js/app.js" "Mozilla/5.0 (Windows NT 6.
+1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:25:44 GMT] "GET /app/style.css" "Mozilla/5.0 (Windows NT 6.
+1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:25:51 GMT] "GET /app/index.html" "Mozilla/5.0 (Windows NT 6
+.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:25:51 GMT] "GET /app/bower_components%5Cbootstrap%5Cdist%5C
+css%5Cbootstrap.css" "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:38.0; [eburo v4.0])
+ Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:25:51 GMT] "GET /app/style.css" "Mozilla/5.0 (Windows NT 6.
+1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:25:51 GMT] "GET /app/js/app.js" "Mozilla/5.0 (Windows NT 6.
+1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:25:52 GMT] "GET /app/style.css" "Mozilla/5.0 (Windows NT 6.
+1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:25:55 GMT] "GET /app/page1.html" "Mozilla/5.0 (Windows NT 6
+.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:48:03 GMT] "GET /app/bootstrap.css.map" "Mozilla/5.0 (Windo
+ws NT 6.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:48:03 GMT] "GET /app/bootstrap.css.map" "Mozilla/5.0 (Windo
+ws NT 6.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:48:03 GMT] "GET /app/bootstrap.css.map" "Mozilla/5.0 (Windo
+ws NT 6.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:48:03 GMT] "GET /app/bootstrap.css.map" "Mozilla/5.0 (Windo
+ws NT 6.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:48:03 GMT] "GET /app/bootstrap.css.map" "Mozilla/5.0 (Windo
+ws NT 6.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+^CTerminer le programme de commandes (O/N) ? O
+
+C:\My Program Files\angular-phonecat-step-0>npm install
+
+> angular-phonecat@0.0.0 postinstall C:\My Program Files\angular-phonecat-step-0
+
+> bower install
+
+bower not-cached    git://github.com/angular-ui/angular-ui.git#~0.13.2
+bower resolve       git://github.com/angular-ui/angular-ui.git#~0.13.2
+bower ENORESTARGET  No tag found that was able to satisfy ~0.13.2
+
+Additional error details:
+Available versions in git://github.com/angular-ui/angular-ui.git: 0.4.0, 0.3.3,
+0.3.2, 0.3.1, 0.3.0, 0.2.1, 0.2.0, 0.1.0
+
+npm ERR! Windows_NT 6.1.7601
+npm ERR! argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\
+node_modules\\npm\\bin\\npm-cli.js" "install"
+npm ERR! node v4.2.4
+npm ERR! npm  v2.14.12
+npm ERR! code ELIFECYCLE
+npm ERR! angular-phonecat@0.0.0 postinstall: `bower install`
+npm ERR! Exit status 1
+npm ERR!
+npm ERR! Failed at the angular-phonecat@0.0.0 postinstall script 'bower install'
+.
+npm ERR! This is most likely a problem with the angular-phonecat package,
+npm ERR! not with npm itself.
+npm ERR! Tell the author that this fails on your system:
+npm ERR!     bower install
+npm ERR! You can get their info via:
+npm ERR!     npm owner ls angular-phonecat
+npm ERR! There is likely additional logging output above.
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     C:\My Program Files\angular-phonecat-step-0\npm-debug.log
+
+C:\My Program Files\angular-phonecat-step-0>npm install
+
+> angular-phonecat@0.0.0 postinstall C:\My Program Files\angular-phonecat-step-0
+
+> bower install
+
+bower not-cached    git://github.com/angular-ui/angular-ui.git#~0.4.0
+bower resolve       git://github.com/angular-ui/angular-ui.git#~0.4.0
+bower download      https://github.com/angular-ui/angular-ui/archive/v0.4.0.tar.
+gz
+bower extract       angular-ui#~0.4.0 archive.tar.gz
+bower invalid-meta  angular-ui is missing "main" entry in bower.json
+bower invalid-meta  angular-ui is missing "ignore" entry in bower.json
+bower resolved      git://github.com/angular-ui/angular-ui.git#0.4.0
+bower install       angular-ui#0.4.0
+
+angular-ui#0.4.0 app\bower_components\angular-ui
+
+C:\My Program Files\angular-phonecat-step-0>npm install
+
+> angular-phonecat@0.0.0 postinstall C:\My Program Files\angular-phonecat-step-0
+
+> bower install
+
+bower not-cached    git://github.com/angular-ui/angular-ui.git#0.3.3
+bower resolve       git://github.com/angular-ui/angular-ui.git#0.3.3
+bower download      https://github.com/angular-ui/angular-ui/archive/v0.3.3.tar.
+gz
+bower extract       angular-ui#0.3.3 archive.tar.gz
+bower invalid-meta  angular-ui is missing "main" entry in bower.json
+bower invalid-meta  angular-ui is missing "ignore" entry in bower.json
+bower resolved      git://github.com/angular-ui/angular-ui.git#0.3.3
+bower install       angular-ui#0.3.3
+bower EPERM         EPERM: operation not permitted, mkdir 'C:\My Program Files\a
+ngular-phonecat-step-0\app\bower_components\angular-ui'
+
+Stack trace:
+C:\My Program Files\angular-phonecat-step-0\node_modules\bower\node_modules\fstr
+eam\lib\dir-writer.js:35:25
+C:\My Program Files\angular-phonecat-step-0\node_modules\bower\node_modules\mkdi
+rp\index.js:46:53
+FSReqWrap.oncomplete (fs.js:82:15)
+
+Console trace:
+Error
+    at StandardRenderer.error (C:\My Program Files\angular-phonecat-step-0\node_
+modules\bower\lib\renderers\StandardRenderer.js:83:37)
+    at Logger.<anonymous> (C:\My Program Files\angular-phonecat-step-0\node_modu
+les\bower\bin\bower:116:30)
+    at emitOne (events.js:77:13)
+    at Logger.emit (events.js:169:7)
+    at Logger.emit (C:\My Program Files\angular-phonecat-step-0\node_modules\bow
+er\node_modules\bower-logger\lib\Logger.js:29:39)
+    at C:\My Program Files\angular-phonecat-step-0\node_modules\bower\lib\comman
+ds\index.js:48:20
+    at _rejected (C:\My Program Files\angular-phonecat-step-0\node_modules\bower
+\node_modules\q\q.js:844:24)
+    at C:\My Program Files\angular-phonecat-step-0\node_modules\bower\node_modul
+es\q\q.js:870:30
+    at Promise.when (C:\My Program Files\angular-phonecat-step-0\node_modules\bo
+wer\node_modules\q\q.js:1122:31)
+    at Promise.promise.promiseDispatch (C:\My Program Files\angular-phonecat-ste
+p-0\node_modules\bower\node_modules\q\q.js:788:41)
+System info:
+Bower version: 1.7.2
+Node version: 4.2.4
+OS: Windows_NT 6.1.7601 x64
+
+npm ERR! Windows_NT 6.1.7601
+npm ERR! argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\
+node_modules\\npm\\bin\\npm-cli.js" "install"
+npm ERR! node v4.2.4
+npm ERR! npm  v2.14.12
+npm ERR! code ELIFECYCLE
+npm ERR! angular-phonecat@0.0.0 postinstall: `bower install`
+npm ERR! Exit status 1
+npm ERR!
+npm ERR! Failed at the angular-phonecat@0.0.0 postinstall script 'bower install'
+.
+npm ERR! This is most likely a problem with the angular-phonecat package,
+npm ERR! not with npm itself.
+npm ERR! Tell the author that this fails on your system:
+npm ERR!     bower install
+npm ERR! You can get their info via:
+npm ERR!     npm owner ls angular-phonecat
+npm ERR! There is likely additional logging output above.
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     C:\My Program Files\angular-phonecat-step-0\npm-debug.log
+
+C:\My Program Files\angular-phonecat-step-0>npm install
+
+> angular-phonecat@0.0.0 postinstall C:\My Program Files\angular-phonecat-step-0
+
+> bower install
+
+bower cached        git://github.com/angular-ui/angular-ui.git#0.3.3
+bower validate      0.3.3 against git://github.com/angular-ui/angular-ui.git#~0.
+3.3
+bower install       angular-ui#0.3.3
+
+angular-ui#0.3.3 app\bower_components\angular-ui
+
+C:\My Program Files\angular-phonecat-step-0>npm start
+
+> angular-phonecat@0.0.0 prestart C:\My Program Files\angular-phonecat-step-0
+> npm install
+
+
+> angular-phonecat@0.0.0 postinstall C:\My Program Files\angular-phonecat-step-0
+
+> bower install
+
+
+> angular-phonecat@0.0.0 start C:\My Program Files\angular-phonecat-step-0
+> http-server -a 0.0.0.0 -p 8000
+
+Starting up http-server, serving ./ on port: 8000
+Hit CTRL-C to stop the server
+[Tue, 12 Jan 2016 14:55:05 GMT] "GET /app/index.html" "Mozilla/5.0 (Windows NT 6
+.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:55:05 GMT] "GET /app/bower_components%5Cbootstrap%5Cdist%5C
+css%5Cbootstrap.css" "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:38.0; [eburo v4.0])
+ Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:55:05 GMT] "GET /app/style.css" "Mozilla/5.0 (Windows NT 6.
+1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:55:05 GMT] "GET /app/js/app.js" "Mozilla/5.0 (Windows NT 6.
+1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:55:07 GMT] "GET /app/style.css" "Mozilla/5.0 (Windows NT 6.
+1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:55:08 GMT] "GET /app/bootstrap.css.map" "Mozilla/5.0 (Windo
+ws NT 6.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:55:08 GMT] "GET /app/bootstrap.css.map" "Mozilla/5.0 (Windo
+ws NT 6.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:55:08 GMT] "GET /app/bootstrap.css.map" "Mozilla/5.0 (Windo
+ws NT 6.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:55:08 GMT] "GET /app/bootstrap.css.map" "Mozilla/5.0 (Windo
+ws NT 6.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:55:08 GMT] "GET /app/bootstrap.css.map" "Mozilla/5.0 (Windo
+ws NT 6.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:56:57 GMT] "GET /app/bootstrap.css.map" "Mozilla/5.0 (Windo
+ws NT 6.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:56:57 GMT] "GET /app/bootstrap.css.map" "Mozilla/5.0 (Windo
+ws NT 6.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:56:57 GMT] "GET /app/bootstrap.css.map" "Mozilla/5.0 (Windo
+ws NT 6.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:56:57 GMT] "GET /app/bootstrap.css.map" "Mozilla/5.0 (Windo
+ws NT 6.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 14:56:57 GMT] "GET /app/bootstrap.css.map" "Mozilla/5.0 (Windo
+ws NT 6.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 15:35:04 GMT] "GET /app/style.css" "Mozilla/5.0 (Windows NT 6.
+1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 15:35:04 GMT] "GET /app/style.css" "Mozilla/5.0 (Windows NT 6.
+1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 15:35:04 GMT] "GET /favicon.ico" "Mozilla/5.0 (Windows NT 6.1;
+ WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 15:35:04 GMT] "GET /favicon.ico" "Mozilla/5.0 (Windows NT 6.1;
+ WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 15:35:13 GMT] "GET /app/bootstrap.css.map" "Mozilla/5.0 (Windo
+ws NT 6.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 15:35:13 GMT] "GET /app/bootstrap.css.map" "Mozilla/5.0 (Windo
+ws NT 6.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 15:35:13 GMT] "GET /app/bootstrap.css.map" "Mozilla/5.0 (Windo
+ws NT 6.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 15:35:13 GMT] "GET /app/bootstrap.css.map" "Mozilla/5.0 (Windo
+ws NT 6.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 15:35:13 GMT] "GET /app/bootstrap.css.map" "Mozilla/5.0 (Windo
+ws NT 6.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 15:47:17 GMT] "GET /app/page1.html" "Mozilla/5.0 (Windows NT 6
+.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 15:47:21 GMT] "GET /app/bootstrap.css.map" "Mozilla/5.0 (Windo
+ws NT 6.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 15:47:21 GMT] "GET /app/bootstrap.css.map" "Mozilla/5.0 (Windo
+ws NT 6.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 15:47:21 GMT] "GET /app/bootstrap.css.map" "Mozilla/5.0 (Windo
+ws NT 6.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 15:47:21 GMT] "GET /app/bootstrap.css.map" "Mozilla/5.0 (Windo
+ws NT 6.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"
+[Tue, 12 Jan 2016 15:47:21 GMT] "GET /app/bootstrap.css.map" "Mozilla/5.0 (Windo
+ws NT 6.1; WOW64; rv:38.0; [eburo v4.0]) Gecko/20100101 Firefox/38.0"

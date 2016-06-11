@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+   </head>
+<!-- Ceci est le template de la page de démo pour la recherche d'adresses--> 
+ <body onload="InitialiserCarte() ;">
+    <section class="page1">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-5 col-md-5">
+					<h3>RECHERCHE D'ADRESSES</h3>
+					<p>
+						Saisir la voie recherchée ci-dessous:
+					</p>
+				</div>
+			</div>		
+		</div>
+		<!-- Ici les deux champs de saisie de la requete de recherche-->
+		<!-- On va les mettre sur une seule ligne -->
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-5 col-md-5">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon2" >Ville</span>
+						<input type="text" class="form-control" id="Ville" placeholder="Ville" aria-describedby="basic-addon2" ng-model="Villes"/>
+					</div>
+				</div>		
+				<div class="col-xs-5 col-md-7">		
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">Voie</span>
+						<input type="text" class="form-control" placeholder="Voie" aria-describedby="basic-addon1" ng-model="Voies"/>
+					</div>
+				</div>		
+			</div>
+		</div>	
+				
+
+		<br>
+		<p style="text-align: center;">
+			<input class="btn btn-primary" type="submit" value="Search" ng-click="recherches()">
+		</p>
+		</br>
+		
+
+		
+		<!-- Ici on va utiliser le grid system pour découper la page en rondelles: -->
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-8 col-md-8">
+					<p style="text-align: center;">Résultat des recherches</p>
+
+						<!-- traitement des lignes ORAS du tableau -->		
+						<table class="table table-bordered">
+							<tbody>
+								<tr class="entete"><td>Source</td><td>Adresses</td><td>Rivoli</td><td>Hexacle</td><td>GPS (Lat, Long)</td></tr>
+									
+								<tr>		
+									<td ng-switch="oras.TypeAddress">	
+										<div ng-switch-when="RAPPROCHEE">ORAS-Adresse rapprochee</div>
+										<div ng-switch-when="SNA">ORAS-SNA</div>
+										<div ng-switch-when="42C">ORAS-42C</div>
+										
+										<div ng-switch-default>ORAS<div>
+									</td>
+									<td ng-switch="oras.TypeAddress">	
+										<div ng-switch-when="RAPPROCHEE">{{ oras.Num | lowercase }} {{ oras.TypeRue | lowercase }} {{ oras.NomRue | lowercase }} {{ oras.CodePostal | lowercase }} {{ oras.NomVille | lowercase }}</div>
+										<div ng-switch-when="SNA">{{ oras.Num | lowercase }} {{ oras.TypeRue | lowercase }} {{ oras.NomRue | lowercase }} {{ oras.CodePostal | lowercase }} {{ oras.NomVille | lowercase }}</div>
+										<div ng-switch-when="42C">{{ oras.Num | lowercase }} {{ oras.TypeRue | lowercase }} {{ oras.NomRue | lowercase }} {{ oras.CodePostal | lowercase }} {{ oras.NomVille | lowercase }}</div>
+										<div ng-switch-when="vide">"Ni hexacle ni rivoli"</div>
+									</td>			
+									<td ng-switch="oras.TypeAddress" ng-class="{ grisee: oras.Rivoli == null }">	
+										<div ng-switch-when="RAPPROCHEE">{{ oras.Rivoli | uppercase }}</div>
+										<div ng-switch-when="SNA">N/A</div>
+										<div ng-switch-when="42C">{{ oras.Rivoli | uppercase }}</div>
+									</td>	
+									<td ng-switch="oras.TypeAddress" ng-class="{ grisee: oras.Hexacle == null }">	
+										<div ng-switch-when="RAPPROCHEE">{{ oras.Hexacle }}</div>
+										<div ng-switch-when="SNA">{{ oras.Hexacle }}</div>
+										<div ng-switch-when="42C">N/A</div>
+									</td>						
+									<td ng-switch="oras.TypeAddress">	
+										<div ng-switch-when="RAPPROCHEE">({{ oras.CoordY }}, {{ oras.CoordX }})</div>
+										<div ng-switch-when="SNA">({{ oras.CoordY }}, {{ oras.CoordX }})</div>
+										<div ng-switch-when="42C">({{ oras.CoordY }}, {{ oras.CoordX }})</div>
+									</td>										
+								</tr>
+								
+								<tr>
+								<div ng-if="oras.Rivoli">
+									<td>FANTOIR - RIVOLI</td>
+									<td>{{ fantoir.code_voie  | lowercase }} {{ fantoir.voie | lowercase }}, {{ fantoir.cmn | lowercase }}</td>
+									<td>{{ oras.Rivoli | uppercase }}</td>
+									<td class="grisee">N/A</td>
+									<td class="grisee">N/A</td>
+								</tr>
+								</div>
+									
+								<tr ng-repeat="fantoir in addressFantoirFinVoie">
+									<td>FANTOIR - FIN VOIE</td>
+									<td>{{ addressFantoirFinVoie[$index].cod_nat_voie | lowercase }} {{ addressFantoirFinVoie[$index].libelle_voie | lowercase }}, {{ addressFantoirFinVoie[$index].cmn | lowercase }}</td>
+									<td>{{ addressFantoirFinVoie[$index].rivoli | uppercase }}</td>
+									<td class="grisee">N/A</td>
+									<td class="grisee">N/A</td>
+								</tr>
+									
+								<tr>
+									
+									<td>BAN</td>
+									<td><a href="" title="score: {{ bano.score }}" data-toggle="tooltip">{{ bano.Rue }}</a></td>
+									<td class="grisee">N/A</td>
+									<td class="grisee">N/A</td>
+									<td ng-switch="bano.CoordX">
+										<div ng-switch-when=""></div>
+										<div ng-switch-default>({{ bano.CoordY }}, {{ bano.CoordX }})</div>
+										
+									</td>
+									
+								</tr>
+		<!--						<tr><td>IGN</td><td>Adresse</td><td>rivoli</td><td>hexacle</td><td>X Y</td></tr> !-->
+							</tbody>
+						</table>
+						
+					</div>
+				<div class="col-xs-4 col-md-4"><p style="text-align: center;">Cartographie</p>
+					<div id="map" style="height: 300px"></div>
+				</div>
+			</div>
+
+					
+				</div>
+			</div>
+		</div>
+		<!-- Fin des rondelles !-->
+		
+		<!-- Mise en place d'une proposition de mail préformaté -->
+		<p style="text-align: center;">Proposition de mail basé sur la recherche</p>
+		
+			<div class="col-xs-5 col-md-5">
+				<label for="InputEmail1">Email address</label>
+			</div>
+			<div class="col-xs-5 col-md-7">
+				<label for="InputEmail1">Email propose</label>
+			</div>
+			
+		<form>
+		
+			<div class="col-xs-5 col-md-2">	
+			<!--<label for="InputEmail1">Email address</label>-->
+			
+
+			<!-- commande specifique pour le menu de selection d'adresse	 -->
+			<multiselect  ng-model="selection" options="options" show-select-all="true" show-unselect-all="true" show-search="true">Destinataires </multiselect>
+</div>
+			<div class="col-xs-5 col-md-3">	
+			<!--
+				<div class="form-group">
+					<label for="InputEmail1">Email address</label>
+					<input type="email" class="form-control" id="InputEmail1" placeholder="oras@mail.test" ng-model="mail">
+				</div>
+				-->
+				
+					
+				<div class="input-group" >
+
+				  <div class="input-group-btn" >
+<!--				  
+					<button type="button" class="btn btn-primary" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Destinataire <span class="caret"></span></button>
+					
+					<ul class="dropdown-menu" >
+					
+					  <li><a href="#">SNA</a></li>
+					  <li><a href="#">42C</a></li>
+					  <li><a href="#">Autre</a></li>
+					
+					</ul>
+					
+
+						    <span uib-dropdown >
+							  <a href id="simple-dropdown" uib-dropdown-toggle>
+								Click me for a dropdown, yo!
+							  </a>
+							  <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+							
+								  <li><a href="#">SNA</a></li>
+								  <li><a href="#">42C</a></li>
+								  <li><a href="#">Autre</a></li>
+							
+							  </ul>
+							</span>
+							
+							 
+							 
+							 
+							    <div class="btn-group" uib-dropdown is-open="status.isopen">
+								  <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
+									Destinataire <span class="caret"></span>
+								  </button>
+								  <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+									<li role="menuitem"><a href="#">SNA</a></li>
+									<li role="menuitem"><a href="#">42C</a></li>
+									<li role="menuitem"><a href="#">Autre</a></li>
+								  </ul>
+								</div>
+
+ 
+
+
+ -->
+		
+				  </div><!-- /btn-group -->
+				  
+				  
+				  
+				  <input type="email" type="submit" class="form-control" id="InputEmail1" placeholder="oras@mail.test" ng-model="mail">
+				</div><!-- /input-group -->
+			 
+
+				
+			</div>
+			
+
+			<div class="col-xs-5 col-md-7">
+				<div class="form-group">
+					<!-- label for="mailPropose">Email propose</label> -->
+					<input type="text" class="form-control" placeholder="Texte du mail a proposer qui va etre mis en parametre" ng-model="contenu">
+				</div> 
+				
+			</div>	
+
+		</form>
+		<form>
+		
+			<div class="col-xs-5 col-md-5">
+				<div class="form-group">
+					<label for="demandeur">Demandeur</label>
+					<input type="text" class="form-control" id="createur" placeholder="S. Olive" ng-model="exp">
+				</div>
+			</div>
+			
+	
+			
+			<div class="col-xs-5 col-md-7">
+				<div class="form-group">
+					<label for="reference">Reference demande</label>
+					<input type="text" class="form-control" id="ref" placeholder="Reference demande" ng-model="ref">
+				</div>
+			</div>
+			<!--
+		<br>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-5 col-md-5">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon3">Reference demande</span>
+						<input type="text" class="form-control" placeholder="Reference demande" aria-describedby="basic-addon3">
+					</div>
+				</div>			
+			</div>	
+		</div>	
+		</br>
+			-->
+		</form>
+		
+		<br>
+		<p style="text-align: center;">
+			<input class="btn btn-primary" type="submit" value="Send Mail" ng-click="sendMail()">
+		</p>
+		</br>
+
+	</section>
+	<!-- fin de section, tout le monde descend !-->
+  </body>
+</html>

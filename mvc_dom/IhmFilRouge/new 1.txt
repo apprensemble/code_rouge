@@ -1,0 +1,18 @@
+NPM= Node Packet Manager (indispensable pour node)
+NodeJs est un packet en tant que tel
+Node permet de definir le projet, toutes les dependances ...
+Il necessite un "package.json"
+bower gere les dependances web (librairies javascript et css)
+npm install -> a lancer pour qu'il récupère les dépendances spécifiées dans package.json
+npm start -> mettre la page en ligne, il demarre un serveur web sur le port 80
+Angular UI => acces direct a l'api leaflet
+F12 pour le debugger natif de firefox
+Ctrl k => ligne de commentaire en html
+
+Tutoriel pour faire appel simple http REST
+https://spring.io/guides/gs/consuming-rest-angularjs/
+
+Doc Api Oras
+http://doc-apidsif.kermit.rd.francetelecom.fr/doku.php?id=apigp:api-address#swagger_ui
+Exemple appel
+http://dv15twsc01.rouen.francetelecom.fr/orasweb/api/addresses?mode=geoCoordinates&geoCodeX=1.296349&geoCodeY=43.717627&addressLevel=numero

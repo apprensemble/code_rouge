@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+ 
+  </head>
+</head>
+	  <body>
+   
+  
+
+ 
+    <section class="page2">
+  <div align="center">
+    <h3>Validation de ma commande</h3>
+
+      <fieldset>
+        <legend>Votre identité</legend>
+
+    
+            <label for=nom>Nom</label>
+            <input disabled id=nom name=nom type=text placeholder="" value="{{ clients2[0].nom }} {{ clients2[0].prenom }}" >
+   <br>
+            <label for=email>Email</label>
+            <input disabled id=email name=email type=email placeholder="" value="{{ clients2[0].email }}" required>
+      
+      </fieldset>
+		
+		<fieldset>
+        <legend>Montant total Commande</legend>
+
+
+            <label for=total>Montant à régler</label>
+            <input disabled id=total name=total type=text placeholder= "{{ paniers2[0].montant_total_ttc }} EUROS"  >
+     
+      </fieldset>
+
+		
+      <fieldset>
+        <legend>informations CB</legend>
+
+    
+                  <input id=visa name=type_de_carte type=radio>
+                  <label for=visa>VISA</label>
+     
+                  <input id=mastercard name=type_de_carte type=radio>
+                  <label for=mastercard>Mastercard</label>
+<br>
+   
+            <label for=num_cb>N° de carte</label>
+            <input id=num_cb name=num_cb required autofocus>
+<br>
+            <label for=code_secu_cb>Code sécurité</label>
+            <input id=code_secu_cb name=code_secu_cb required>
+<br>
+            <label for=nom_porteur_cb>Nom du porteur</label>
+            <input id=nom_porteur_cb name=nom_porteur_cb type=text placeholder="Même nom que sur la carte" required>
+
+      </fieldset>
+
+		<tr>
+            <td colspan="7" align="center" >
+               <input class="btn btn-primary" type="submit" value="J'achete !" ng-click="payer()">
+												
+			</td>
+        </tr>
+    </form
+  </div>
+  
+  
+</section>
+
+	
+  </body>
+</html>

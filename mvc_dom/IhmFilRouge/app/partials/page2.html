@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+     
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+ </head>
+	  <body>
+ 
+
+
+ 
+    <section class="page2">
+
+<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 col-md-12">
+					<h3 style="text-align: center;">Produits disponibles</h3>
+
+						<!-- traitement du tableau -->		
+						<table class="table .table-bordered " class = "tabs" >
+							<tbody>
+								<tr class="entete"><td>Photo</td><td>Nom du produit</td><td>Prix HT</td><td>Stock</td><td>Action</td></tr>
+									
+								<tr ng-repeat="prod in produits" class="active">		
+									<td   >	
+										<div >
+
+											<img ng-src="img\{{produits[$index].photo}}" resize image-percent="50">
+										<div>
+									</td>	
+									<td  >
+										<div default>{{ produits[$index].lib_prod }} </br>
+										{{ produits[$index].desc_long }} <div>
+									</td>
+		
+									<td   >	
+
+										<div default>{{ produits[$index].pric_HT }} <div>
+									</td>	
+									<td   >	
+
+										<div default>{{ produits[$index].stock_qte }}  <div>
+									</td>						
+									<td    >	
+						
+										<div default  >
+											<br>
+												<p >
+													<input class="btn btn-primary" type="submit" value="Ajouter au panier" ng-click="ajouter($index)">
+												
+													<form name="myForm" >
+													  <label><h6>Quantité: </h6>
+														<input type="number" name="input" min="0" max="99" ng-model="nombre" required>
+														
+													 </label>
+
+													 </form>
+												 </p>
+											</br>
+										<div>
+									</td>	
+
+								</tr>
+							</tbody>
+						</table>
+				</div>
+			</div>
+</div>
+
+	</section>
+
+  </body>
+</html>

@@ -1,0 +1,489 @@
+<html>
+<!-- coding: utf-8 -->
+<!--
+quelques liens
+http://leafletjs.com/reference.html
+http://georezo.net/forum/viewtopic.php?id=88296
+https://leanpub.com/leaflet-tips-and-tricks/read
+http://www.portailsig.org/content/leaflet-la-simple-2-cercles-proportionnels
+http://damien.pobel.fr/post/cartographie-api-geoportail-ign-leaflet
+-->
+<head>
+  <title>Leaflet & wmts</title>
+  <meta name="author" content="Marc Gauthier" />
+  <meta name="licence" content="http://creativecommons.org/licenses/by-nc-sa/2.0/fr/ licence Creative Commons Paternité-Pas d'Utilisation Commerciale-Partage des Conditions Initiales à l'Identique 2.0 France" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--leaflet-->
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <!--api google-->
+  <script type='text/javascript' src="https://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
+  <!--plein écran-->
+  <link rel="stylesheet" href="/leaflet/leaflet.fullscreen/Control.FullScreen.css" />
+  <script src="/leaflet/leaflet.fullscreen/Control.FullScreen.js"></script>
+  <!--layer Google-->
+  <script type='text/javascript' src="/leaflet/shramov/layer/tile/Google.js"></script>
+  <!--layer marker cluster-->
+  <link rel="stylesheet" href="/leaflet/Leaflet.markercluster/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="/leaflet/Leaflet.markercluster/dist/MarkerCluster.Default.css" />
+  <script type='text/javascript' src="/leaflet/Leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
+  <!--search-->
+  <link rel="stylesheet" href="/leaflet/leaflet-search/dist/leaflet-search.min.css" />
+  <script type='text/javascript' src="/leaflet/leaflet-search/dist/leaflet-search.min.js"></script>
+  <!--geojson ajax-->
+  <script type='text/javascript' src="/leaflet/leaflet-ajax-master/dist/leaflet.ajax.js"></script>
+  <!--leaflet label-->
+  <link rel="stylesheet" href="/leaflet/Leaflet.label/dist/leaflet.label.css" />
+  <script type='text/javascript' src="/leaflet/Leaflet.label/dist/leaflet.label.js"></script>
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  </div>
+  <style>
+html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+#map {
+    width: 100%;
+    height: 100%;
+}
+#geocode {
+    background: #2c3e50;
+    color: #fff;
+    opacity: 1;
+}
+  </style>
+</head>
+
+<body>
+  <div id='map'>
+        <div id="geocode" class="leaflet-bottom leaflet-left">
+    <div id='output'>
+      Latitude <code id='latitude'></code>
+      Longitude: <code id='longitude'></code>
+    </div>
+    <div id='geocode_reponse'>
+toto
+    </div>
+        </div>
+  </div>
+  <script>
+var map = null;
+var apiKEYs = {
+  'localhost': '9m2r220489kkm1x2s7lq6wdh',
+  'aflsante.fr': 'bj879m1kzzhxwm4v2p5vpiy9',
+  'www.bretagne-vivante.org': 'uit9cf7rn73kf8qevrgjemfd',
+  'ao35.free.fr': '7121987927416067486',
+  'atlasnw.free.fr': 'dgdc5nlbj5apwtmuk4wp4ecn',
+  'mga.alwaysdata.net': 'wv7w208rgqxf81bp4chcfmx0'
+};
+var apiKEY = apiKEYs[window.location.host];
+var conf = {
+  lon: -1.67,
+  lat: 48.11,
+  zoom: 14,
+};
+function map_init() {
+  console.log("map_init() début");
+  map = L.map('map', {
+    continuousWorld: true,
+    worldCopyJump: false
+  }).setView([conf.lat, conf.lon], conf.zoom);
+  L.control.scale({
+    'position': 'bottomleft',
+    'metric': true,
+    'imperial': false
+  }).addTo(map);
+// http://geobretagne.fr//gwc01/service/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=osm:map&STYLE=normal&TILEMATRIXSET=EPSG:4326&TILEMATRIX=14&TILEROW=5687&TILECOL=8113&FORMAT=image%2Fpng
+  function layer_gb(layer) {
+    return "http://geobretagne.fr/"
+      + "gwc01/service/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&"
+      + "LAYER=" + layer
+      + "&STYLE=normal&TILEMATRIXSET=EPSG:3857&"
+      + "TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&FORMAT=image%2Fpng";
+  }
+// http://kartenn.region-bretagne.fr/wmts?Layer=ORTHOIMAGERY.ORTHOPHOTOS&style=normal&Style=normal&TileMatrixSet=PM&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fjpeg&TileMatrix=17&TileCol=64663&TileRow=45522
+// http://kartenn.region-bretagne.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&STYLE=normal&TILEMATRIX=14&TILEROW=5686&TILECOL=8115&FORMAT=image%2Fjpeg
+  function layer_gb(layer) {
+    return "http://kartenn.region-bretagne.fr/"
+      + "wmts?Layer=ORTHOIMAGERY.ORTHOPHOTOS&style=normal&Style=normal&TileMatrixSet=PM&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fjpeg&"
+      + "&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}";
+  }
+
+  function layer_ign(layer) {
+    return "http://wxs.ign.fr/"
+      + apiKEY + "/geoportail/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&"
+      + "LAYER=" + layer
+      + "&STYLE=normal&TILEMATRIXSET=PM&"
+      + "TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&FORMAT=image%2Fjpeg";
+  }
+  var ign_cartes = new L.tileLayer(
+    layer_ign("GEOGRAPHICALGRIDSYSTEMS.MAPS"), {
+      attribution: "&copy; <a href='http://www.ign.fr'>IGN</a>"
+    }
+  )
+  var ign_photos = new L.tileLayer(
+    layer_ign("ORTHOIMAGERY.ORTHOPHOTOS"), {
+      attribution: "&copy; <a href='http://www.ign.fr'>IGN</a>"
+    }
+  )
+  var ign_cartes_classique = new L.tileLayer(
+    layer_ign("GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN-EXPRESS.CLASSIQUE"), {
+      attribution: "&copy; <a href='http://www.ign.fr'>IGN</a>"
+    }
+  )
+  var gb_osm_map = new L.tileLayer(
+    layer_gb("osm:map"), {
+      attribution: "&copy; <a href='http://geobretagne.fr'>GéoBretagne</a>"
+    }
+  )
+
+    // les couches de base
+  var baseLayers = {
+    "IGN cartes": ign_cartes,
+    "IGN classque": ign_cartes_classique,
+    "IGN photos": ign_photos,
+    "GB osm": gb_osm_map,
+    "Google Route": new L.Google('ROADMAP'),
+    "Google Satellite": new L.Google('SATELLITE'),
+    "Google Hybride": new L.Google("HYBRID")
+  };
+  // la couche par défaut
+  map.addLayer(ign_cartes);
+  // le contrôle pour choisir la couche
+  L.control.layers(baseLayers, null, {
+    collapsed: false
+  }).addTo(map);
+  // pour centrer la carte en fonction de la position du navigateur
+  //    map.locate({setView: true, maxZoom: 16});
+  function onLocationFound(e) {
+      var radius = e.accuracy / 2;
+      L.marker(e.latlng).addTo(map).bindPopup("You are within " + radius + " meters from this point").openPopup();
+      L.circle(e.latlng, radius).addTo(map);
+    }
+    //
+    // pour le passage plein écran
+  var fsControl = new L.Control.FullScreen();
+  map.addControl(fsControl);
+  console.log("map_init() fin");
+
+}
+  //    map.on('locationfound', onLocationFound)
+  //
+  // une couche avec des markers
+function map_markers() {
+  var labelMarkerOptions = {
+    opacity: 1,
+    fillOpacity: 0
+  };
+  var geojson = $.getJSON("/bv/avocette/toto");
+  geojson.then(function(data) {
+    var geojsonLayer = L.geoJson(data, {
+      pointToLayer: function(feature, latlng) {
+        return L.marker(latlng, labelMarkerOptions).bindLabel(feature.properties.date, {
+          noHide: true
+        });
+      },
+    });
+    geojsonLayer.addTo(map);
+    map.fitBounds(geojsonLayer.getBounds(), {
+      padding: [50, 50]
+    });
+  });
+}
+
+function map_position() {
+    // la position en fonction d'un clic ou par déplacement du marqueur
+    map.on('click', onMapClick);
+    var markerLayer;
+
+    function display_latlng(ll) {
+      window['latitude'].innerHTML = ll.lat.toFixed(6);
+      window['longitude'].innerHTML = ll.lng.toFixed(6);
+      map_search_reverse(ll.lng.toFixed(6), ll.lat.toFixed(6))
+      oGN.getReverse(ll.lng.toFixed(6), ll.lat.toFixed(6));
+    }
+
+    function onMapClick(e) {
+      if (markerLayer) {
+        map.removeLayer(markerLayer);
+      }
+      markerLayer = new L.marker(e.latlng, {
+        draggable: 'true'
+      });
+      display_latlng(e.latlng);
+      markerLayer.on('dragend', function(event) {
+        var marker = event.target;
+        display_latlng(marker.getLatLng());
+      });
+      map.addLayer(markerLayer);
+    };
+  }
+  //
+function map_search() {
+  map.addControl(new L.Control.Search({
+    url: 'http://nominatim.openstreetmap.org/search?format=json&q={s}',
+    jsonpParam: 'json_callback',
+    propertyName: 'display_name',
+    propertyLoc: ['lat', 'lon'],
+    circleLocation: false,
+    markerLocation: false,
+    autoType: false,
+    autoCollapse: true,
+    minLength: 2,
+    zoom: 15
+  }));
+}
+var aReponses = null;
+function map_search_reverse(lon, lat) {
+  aReponses = [];
+  reverseGeocode(lon, lat);
+  function reverseGeocode(lon, lat) {
+    xml = '<?xml version="1.0" encoding="UTF-8"?><XLS xmlns:gml="http://www.opengis.net/gml" xmlns="http://www.opengis.net/xls" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="http://www.opengis.net/xls http://schemas.opengis.net/ols/1.2/olsAll.xsd">';
+    xml += '<RequestHeader/><Request requestID="1" version="1.2" methodName="GeocodeRequest" maximumResponses="200">';
+    xml += '<ReverseGeocodeRequest>';
+    xml += '<Position>';
+    xml += '<gml:Point><gml:pos>' + lat + ' ' + lon + '</gml:pos></gml:Point>';
+    xml += '<gml:CircleByCenterPoint>';
+    xml += '<gml:pos>' + lat + ' ' + lon + '</gml:pos>';
+    xml += '<gml:radius>1000</gml:radius>';
+    xml += '</gml:CircleByCenterPoint>';
+    xml += '</Position>';
+    xml += '<ReverseGeocodePreference>PositionOfInterest</ReverseGeocodePreference>';
+    xml += '</ReverseGeocodeRequest></Request></XLS>';
+    query = encodeURIComponent(xml);
+    url = "http://wxs.ign.fr/" + apiKEY + "/geoportail/ols?xls=" + query
+    url = url + "&output=json";
+    //  url = url + "&output=json&callback=json_callback";
+    $.ajax({
+      url: url,
+      jsonp: "callback",
+      dataType: "jsonp",
+      success: function(response) {
+        console.log("reverseGeocode response", response); // server response
+        reverseGeocode_callback(response);
+      }
+    });
+  }
+
+  function reverseGeocode_callback(data) {
+    json_data = data;
+    if (json_data.http.status != 200) {
+      reponse_parse(json_data.http.status)
+      return;
+    }
+    var xml = json_data.xml.replace(/</gm, '\n<')
+    reverseGeocode_parse(xml);
+  }
+  //
+  // le traitement de la réponse
+  function reverseGeocode_parse(text) {
+    console.log("reverseGeocode_parse()");
+    reponse_div = document.getElementById('geocode_reponse');
+    reponse_div.innerHTML = text;
+    var index = text.indexOf('<');
+    if (index > 0) {
+      text = text.substring(index);
+    }
+    if (window.DOMParser) {
+      parser = new DOMParser();
+      xmlDoc = parser.parseFromString(text, "text/xml");
+    } else {
+      xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+      xmlDoc.async = false;
+      xmlDoc.loadXML(text);
+    }
+    racine = xmlDoc.documentElement;
+    console.log("reverseGeocode_parse() nb chilNodes:%s", racine.hasChildNodes());
+
+    var reponsesList = racine.getElementsByTagName("ReverseGeocodedLocation");
+    console.log("reverseGeocode_parse() nb reponses:%s", reponsesList.length)
+    if (reponsesList.length < 1) {
+      return;
+    }
+    for (i = 0; i < reponsesList.length; i++) {
+      ReverseGeocodedLocation_parse(reponsesList[i]);
+      //    break;
+    }
+    //  alert(xml);
+  }
+
+  function ReverseGeocodedLocation_parse(reponse) {
+    var liste, i, sliste;
+    var valeurs = [];
+    liste = reponse.getElementsByTagName("Address");
+    if (liste.length < 1) {
+      console.log("ReverseGeocodedLocation_parse() nb Address places:%s", liste.length)
+      return;
+    }
+    if (liste[0].getAttribute('countryCode') === 'PositionOfInterest') {
+      ReverseGeocodedLocation_parse_poi(reponse);
+      return;
+    }
+    liste = reponse.getElementsByTagName("Place");
+    //  console.log("ReverseGeocodedLocation_parse() nb places:%s", liste.length)
+    if (liste.length < 1) {
+      return;
+    }
+
+    if (valeurs['Qualite'] == "Plaque adresse") {
+      ReverseGeocodedLocation_parse_adresse(reponse);
+      return;
+    }
+    liste = reponse.getElementsByTagName("StreetAddress");
+    if (liste.length < 1) {
+      console.log("ReverseGeocodedLocation_parse() *** StreetAdress")
+      return;
+    }
+    sliste = liste[0].getElementsByTagName("Building");
+    if (sliste.length < 1) {
+      console.log("ReverseGeocodedLocation_parse() *** Building")
+      console.log(reponse)
+      return;
+    }
+    valeurs['number'] = sliste[0].getAttribute('number');
+    sliste = liste[0].getElementsByTagName("Street");
+    if (sliste.length < 1) {
+      console.log("ReverseGeocodedLocation_parse() *** Street")
+      return;
+    }
+    valeurs['Street'] = trim(sliste[0].textContent);
+    console.log("%s;%s;%s;%s", valeurs['number'], valeurs['Street'], valeurs['Commune'], valeurs['INSEE']);
+    return;
+    var position = reponse.getElementsByTagNameNS(reponse, "*", "pos")[0];
+    var loc = position.textContent.split(" ");
+  }
+
+  function ReverseGeocodedLocation_parse_adresse(reponse) {
+    var liste, i, sliste;
+    var valeurs = [];
+    liste = reponse.getElementsByTagName("StreetAddress");
+    if (liste.length < 1) {
+      console.log("ReverseGeocodedLocation_parse() *** StreetAdress")
+      return;
+    }
+    sliste = liste[0].getElementsByTagName("Building");
+    if (sliste.length < 1) {
+      console.log("ReverseGeocodedLocation_parse() *** Building")
+      console.log(reponse)
+      return;
+    }
+    valeurs['number'] = sliste[0].getAttribute('number');
+    sliste = liste[0].getElementsByTagName("Street");
+    if (sliste.length < 1) {
+      console.log("ReverseGeocodedLocation_parse() *** Street")
+      return;
+    }
+    valeurs['Street'] = trim(sliste[0].textContent);
+    console.log("%s;%s;%s;%s", valeurs['number'], valeurs['Street'], valeurs['Commune'], valeurs['INSEE']);
+  }
+
+  function ReverseGeocodedLocation_parse_poi(reponse) {
+    var liste, i, sliste;
+    var valeurs = [];
+    liste = reponse.getElementsByTagName("SearchCentreDistance");
+    if (liste.length < 1) {
+      console.log("ReverseGeocodedLocation_parse_poi() nb SearchCentreDistance:%s", liste.length)
+      return;
+    }
+    valeurs['SearchCentreDistance'] = liste[0].getAttribute('value');
+    liste = reponse.getElementsByTagName("Place");
+    if (liste.length < 1) {
+      console.log("ReverseGeocodedLocation_parse_poi() nb places:%s", liste.length)
+      return;
+    }
+    for (var i = 0; i < liste.length; i++) {
+      var element = liste[i];
+      var elementAttributes = element.attributes;
+      for (var e = 0; e < elementAttributes.length; e++) {
+        var attribut = elementAttributes[e];
+        //      console.log(attribut.name+"="+attribut.value);
+      }
+      //    console.log(element.getAttribute('type') , "=>", trim(element.textContent));
+      valeurs[element.getAttribute('type')] = trim(element.textContent);
+    }
+    aReponses.push(valeurs);
+    console.log("%s;%s;%s;%s;%s;%s", valeurs['Importance'], valeurs['Nature'], valeurs['Municipality'], valeurs['Commune'], valeurs['Departement'], valeurs['SearchCentreDistance']);
+  }
+  //
+  // encodage de la requête version post
+  function trim(s) {
+    s = s.replace(/^\s+/gm, '').replace(/\s+$/gm, '');
+    s = s.replace(/\n/gm, '');
+    s = s.replace(/\s*$/, '');
+    return s;
+  }
+}
+//
+// geocodage avec Nominatim
+function GeocodeNominatim() {
+  this._callbackId= 0;
+  this.url = '//nominatim.openstreetmap.org/';
+  this.reverseParams = {
+    lat : 48,
+    lon : -3,
+    zoom: 18,
+    addressdetails: 3,
+    format : 'json'
+  };
+};
+GeocodeNominatim.prototype.getJSON = function(url, params, callback) {
+	var xmlHttp = new XMLHttpRequest();
+  xmlHttp.open( "GET", url + L.Util.getParamString(params), true);
+  xmlHttp.send(null);
+  xmlHttp.onreadystatechange = function () {
+    if (xmlHttp.readyState != 4) return;
+    if (xmlHttp.status != 200 && req.status != 304) return;
+    callback(JSON.parse(xmlHttp.response));
+  }
+};
+GeocodeNominatim.prototype.getReverse = function(lon, lat) {
+  this.reverseParams.lon = lon;
+  this.reverseParams.lat = lat;
+  this.getJSON(this.url+ 'reverse/', this.reverseParams, this.parseReverse);
+};
+GeocodeNominatim.prototype.parseReverse = function(json) {
+  console.trace();
+//  console.log("parseReverse()", json);
+  var a = json.address
+  console.log("parseReverse()", a);
+  var lieudit = '';
+  var aKeys = ['city', 'town', 'village', 'road', 'suburb'];
+  for ( i in aKeys ) {
+    key = aKeys[i];
+    console.log("key:", key);
+    if ( (key in a ) ) {
+     lieudit = a[key];
+    }
+  }
+  var aKeys = ['county'];
+  for ( i in aKeys ) {
+    key = aKeys[i];
+    console.log("key:", key);
+    if ( (key in a ) ) {
+     ville = a[key];
+    }
+  }
+  var departement = '';
+  var aKeys = ['postcode', 'state_district', 'state'];
+  for ( i in aKeys ) {
+    key = aKeys[i];
+    console.log("key:", key);
+    if ( (key in a ) ) {
+      departement = a[key];
+    }
+  }
+  console.log("parseReverse()", a.country, a.country_code, departement, ville, lieudit);
+};
+  oGN = new GeocodeNominatim();
+  oGN.getReverse(conf.lon, conf.lat);
+map_init();
+map_search();
+map_position();
+</script>
+</body>
+
+</html>

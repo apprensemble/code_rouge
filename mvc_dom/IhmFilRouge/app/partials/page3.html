@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+ 
+  </head>
+</head>
+	  <body>
+ 
+
+
+ 
+    <section class="page2">
+
+<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 col-md-12">
+					<h3 style="text-align: center;">Contenu de votre panier</h3>
+
+						<!-- traitement du tableau -->		
+						<table class="table .table-bordered " class = "tabs" >
+							<tbody>
+								<tr class="entete"><td>Nom du produit</td><td>Quantité</td><td>Prix HT</td><td>TVA</td><td>Prix TTC</td><td>Action</td></tr>
+									
+								<tr ng-repeat="prod in produitsPanier" class="active">		
+						
+									<td  >
+										<div default>{{ produitsPanier[$index].code_prod }} 
+									</td>
+											<td   >	
+
+										<div default>{{ produitsPanier[$index].qte }}  <div>
+									</td>		
+									<td   >	
+							
+
+										<div default>{{ produitsPanier[$index].prix_HT }} <div>
+									</td>	
+
+									<td   >	
+										<div default>{{ produitsPanier[$index].tva }}  <div>
+									</td>									
+										
+									<td   >	
+										<div default>{{ produitsPanier[$index].ttc }}  <div>
+									</td>	
+									<td   >
+									
+										<input class="btn btn-danger" type="submit" value="Supprimer" ng-click="supprimer($index)">
+												
+
+												 
+									</td>
+								</tr>
+							</tbody>
+						</table>
+				</div>
+			</div>
+</div>
+
+	</section>
+	
+	<table width="850" border="0" cellspacing="2" cellpadding="3" align="CENTER">
+
+		<tr>
+			<td colspan="2" align="center" >
+			    <div class="form-group">
+					<label for="disabledTextInput">Total TCC de vos achats : </label>
+					<label for="disabledTextInput"> {{ paniers[0].montant_total_ttc }} EUROS</label>
+					
+				</div>
+			</td>
+		</tr>
+		<br>
+			
+		<tr>
+            <td colspan="7" align="center" >
+               <input class="btn btn-primary" type="submit" value="Valider ma Commande" ng-click="acheter()">
+												
+			</td>
+        </tr>
+</table>
+	
+  </body>
+</html>

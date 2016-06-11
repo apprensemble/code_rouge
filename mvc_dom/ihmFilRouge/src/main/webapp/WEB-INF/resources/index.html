@@ -1,0 +1,59 @@
+<!--http://www.marieemmanuellehamon.fr/blog/debuter-avec-angularjs-comprendre-les-bases-1/-->
+<!--ceci est un test d'angularJS-->
+<!DOCTYPE html>
+<html ng-app="app">
+<html>
+    <head>
+        
+		<meta charset="utf-8" />
+        
+		<title>angular.module &amp; ng-app</title>
+		
+		
+
+		<link rel="stylesheet" href="bower_components\bootstrap\dist\css\bootstrap.css" />
+		<link rel="stylesheet" href="css\app.css" />
+		<link rel="stylesheet" href="bower_components\angular-ui\build\angular-ui.css" />
+
+		
+		<!--bootstrap Orange-->
+        <!--<link rel="stylesheet" href="bower_components\boosted\dist\css\boosted.min.css" />-->
+		
+		
+	
+		<script src="bower_components\jquery\dist\jquery.js"></script>
+		
+		
+		<script src="bower_components\angular\angular.js"></script>
+		<script src="bower_components\angular-route\angular-route.js"></script>
+		<script src="bower_components\angular-ui\build\angular-ui.js"></script>
+		<script src="bower_components\angular-bootstrap\ui-bootstrap-tpls.js"></script>
+		
+		<!--<link rel="stylesheet" href="style.css" />-->
+		
+		
+        <script src="js/app.js"></script>
+		<!--<script src="js/exemple.js"></script>-->
+		<!--<script src="js/controllers.js"></script>-->
+
+    </head>
+
+    <body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-5 col-md-5">
+					Module de recherche d'informations hors ORAS
+						<nav>
+							<a href="#/page1" class="btn btn-warning">Recherche</a>
+							<a href="#/page2" class="btn btn-success">Suivi des demandes</a	>
+							<a href="#/page3" class="btn btn-info">A définir</a>		
+						</nav>
+					</div>
+				</div>		
+			</div>
+		<div ng-view>
+        </div>
+
+		
+    </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+ 
+  </head>
+  <body>
+    <section class="page2">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-5 col-md-5">
+					<h3>SUIVI DES DEMANDES</h3>
+				</div>
+			</div>		
+		</div>
+<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 col-md-12">
+					<p style="text-align: center;">Tableau de suivi des demandes</p>
+
+						<!-- traitement du tableau -->		
+						<table class="table table-bordered" >
+							<tbody>
+								<tr class="entete"><td>Référence Demande</td><td>Contenu</td><td>Destinataire</td><td>Emetteur</td><td>Date creation</td><td>Date relance</td><td>Statut</td></tr>
+									
+								<tr ng-repeat="dem in demandes | orderBy:'ref'">		
+									<td ng-switch="oras.TypeAddress" >	
+										
+										<div default>{{ demandes[$index].ref }}<div>
+									</td>
+									<td ng-switch="oras.TypeAddress" >	
+
+										<div default>{{ demandes[$index].contenu }}<div>
+									</td>			
+									<td ng-switch="oras.TypeAddress" >	
+
+										<div default>{{ demandes[$index].dest }}<div>
+									</td>	
+									<td ng-switch="oras.TypeAddress" >	
+
+										<div default>{{ demandes[$index].createur }}<div>
+									</td>						
+									<td ng-switch="oras.TypeAddress" ng-class="{ grisee: oras.Rivoli == null }" >	
+						
+										<div default>N/A<div>
+									</td>	
+									<td ng-switch="oras.TypeAddress" ng-class="{ grisee: oras.Rivoli == null }" >	
+	
+										<div default>N/A<div>
+									</td>	
+									<td ng-switch="oras.TypeAddress" >	
+		
+										<div default>{{ demandes[$index].status }}<div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+				</div>
+			</div>
+</div>
+
+	</section>
+  </body>
+</html>

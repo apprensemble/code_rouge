@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+   </head>
+<!-- Ceci est le template de la page de démo pour la recherche d'adresses--> 
+ 	<body>
+		<section ng-switch = "fr.login" class="page2">
+			
+			<div class="container-fluid">
+			
+			<div ng-switch-when="raymond">
+				<div align="center">
+				
+					<h3>votre compte client</h3>
+				
+					<form action="upd_client.php?upd_id=" method="POST" id=client name="formulaire" enctype="multipart/form-data" onsubmit="return verif_formulaire()" align=center>
+					<input type="hidden" name="saisie_form" value="True">
+					<input type="hidden" name="code_client" value="">
+					<input type="hidden" name="MAX_FILE_SIZE" value="1000000">    
+
+						  <fieldset>
+							<legend>Votre identité</legend>
+
+								<label for=nom>Nom</label> 
+								<input id=nom name=nom type=text placeholder="" value=""  required><br>
+							 
+								<label for=nom>Prénom</label>
+								<input  id=prenom name=prenom type="Prénom"  placeholder="" value=""  required> <br>
+							 
+								<label for=email>Email</label> 
+								<input  id=email name=email type=email placeholder="" value="" required><br>
+							  
+								<label for=civilité>Civilité</label> 
+									<SELECT name="civilite" size="1">
+										<OPTION>Monsieur
+										<OPTION>Madame
+										<OPTION>Mademoiselle
+									</SELECT><br>
+							
+						  </fieldset>
+
+						
+							<fieldset>
+							<legend>Choisir un Mot de passe</legend>
+
+							
+								<label for=mdp>Mot de passe</label>
+								<input id=mdp name=mdp type=password placeholder="Saisir un mdp avec 6 caractères min"  ><br>
+							 
+								<label for=mdpconfirme>Confirmation Mdp</label>
+								<input  id=mdpconfirme name=mdpconfirme type=password placeholder="Confirmer le mdp"  >
+							
+						  </fieldset><br>
+
+							
+						 
+
+						  <fieldset>
+							<button  class="btn btn-primary" type="submit" value="">Valider</button>
+						  </fieldset><br>
+						</form>
+					 </div>
+				
+				</div>
+			</div>
+			
+			
+			
+			<div ng-switch-when="">
+				
+				
+				<div align="center">
+					<h1>Site VP Chti</h1>
+				 
+				   
+					
+			<!--		
+				<form  method="POST" name="formulaire" id="client">
+				<input type="Hidden" name="saisie_form" value="True">
+			-->
+				
+						<legend>Connecte toi !!</legend>
+<fieldset>
+						
+						<div class="input-group">
+							<label for="code_client">Compte client</label>
+							
+							<input id="code_client" class="form-control" name="code_client" type="text" placeholder="Ton Email" aria-describedby="basic-addon2" ng-model="email"  />
+
+						</div>
+							</br>
+						<div class="input-group">
+							<label for="mdp">Mot de passe</label>
+							<input id="mdp" class="form-control" name="mdp" type="password" placeholder="Ton mot de passe" aria-describedby="basic-addon2" ng-model="Mdp"  />
+						</div>
+					</br>
+					
+ </fieldset>
+					 
+						
+					 
+
+					  <fieldset>
+						<button  class="btn btn-primary" type="submit" value="" ng-click="valider()">Valider</button>
+					  </fieldset>
+					  
+
+				 </div>
+ 	</div>
+ 
+			</div>
+		</section>
+ 
+	</body>
+</html>

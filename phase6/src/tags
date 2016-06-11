@@ -1,0 +1,54 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AccesBdd	main/AccesBdd.java	/^public class AccesBdd {$/;"	c
+AfficheProduits	main/AfficheProduits.java	/^    public AfficheProduits() {$/;"	m	class:AfficheProduits
+AfficheProduits	main/AfficheProduits.java	/^public class AfficheProduits extends HttpServlet {$/;"	c
+Produit	main/Produit.java	/^	public Produit(String code_prod, String lib_prod, String desc_court,$/;"	m	class:Produit
+Produit	main/Produit.java	/^public class Produit {$/;"	c
+TVA	main/Produit.java	/^	String TVA;$/;"	f	class:Produit
+code_prod	main/Produit.java	/^	String code_prod;$/;"	f	class:Produit
+commentaires	main/Produit.java	/^	String commentaires;$/;"	f	class:Produit
+creation	main/AccesBdd.java	/^	static Date creation = Calendar.getInstance().getTime();$/;"	f	class:AccesBdd
+desc_court	main/Produit.java	/^	String desc_court;$/;"	f	class:Produit
+desc_long	main/Produit.java	/^	String desc_long;$/;"	f	class:Produit
+doGet	main/AfficheProduits.java	/^	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {$/;"	m	class:AfficheProduits
+doPost	main/AfficheProduits.java	/^	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {$/;"	m	class:AfficheProduits
+dt_debut	main/Produit.java	/^	String dt_debut;$/;"	f	class:Produit
+dt_fin	main/Produit.java	/^	String dt_fin;$/;"	f	class:Produit
+formater	main/AccesBdd.java	/^	static SimpleDateFormat formater = new SimpleDateFormat("dd\/MM\/yyyy");$/;"	f	class:AccesBdd
+getCode_prod	main/Produit.java	/^	public String getCode_prod() {$/;"	m	class:Produit
+getCommentaires	main/Produit.java	/^	public String getCommentaires() {$/;"	m	class:Produit
+getDesc_court	main/Produit.java	/^	public String getDesc_court() {$/;"	m	class:Produit
+getDesc_long	main/Produit.java	/^	public String getDesc_long() {$/;"	m	class:Produit
+getDt_debut	main/Produit.java	/^	public String getDt_debut() {$/;"	m	class:Produit
+getDt_fin	main/Produit.java	/^	public String getDt_fin() {$/;"	m	class:Produit
+getLib_prod	main/Produit.java	/^	public String getLib_prod() {$/;"	m	class:Produit
+getPhoto	main/Produit.java	/^	public String getPhoto() {$/;"	m	class:Produit
+getPric_HT	main/Produit.java	/^	public String getPric_HT() {$/;"	m	class:Produit
+getStock_qte	main/Produit.java	/^	public Integer getStock_qte() {$/;"	m	class:Produit
+getTVA	main/Produit.java	/^	public String getTVA() {$/;"	m	class:Produit
+lib_prod	main/Produit.java	/^	String lib_prod;$/;"	f	class:Produit
+lireProduits	main/AccesBdd.java	/^	public static ArrayList<Produit> lireProduits () {$/;"	m	class:AccesBdd
+main	main/AccesBdd.java	/^package main;$/;"	p
+main	main/AfficheProduits.java	/^package main;$/;"	p
+main	main/Produit.java	/^package main;$/;"	p
+photo	main/Produit.java	/^	String photo;$/;"	f	class:Produit
+pric_HT	main/Produit.java	/^	String pric_HT;$/;"	f	class:Produit
+relance	main/AccesBdd.java	/^	static Date relance = null;$/;"	f	class:AccesBdd
+serialVersionUID	main/AfficheProduits.java	/^	private static final long serialVersionUID = 1L;$/;"	f	class:AfficheProduits	file:
+setCode_prod	main/Produit.java	/^	public void setCode_prod(String code_prod) {$/;"	m	class:Produit
+setCommentaires	main/Produit.java	/^	public void setCommentaires(String commentaires) {$/;"	m	class:Produit
+setDesc_court	main/Produit.java	/^	public void setDesc_court(String desc_court) {$/;"	m	class:Produit
+setDesc_long	main/Produit.java	/^	public void setDesc_long(String desc_long) {$/;"	m	class:Produit
+setDt_debut	main/Produit.java	/^	public void setDt_debut(String dt_debut) {$/;"	m	class:Produit
+setDt_fin	main/Produit.java	/^	public void setDt_fin(String dt_fin) {$/;"	m	class:Produit
+setLib_prod	main/Produit.java	/^	public void setLib_prod(String lib_prod) {$/;"	m	class:Produit
+setPhoto	main/Produit.java	/^	public void setPhoto(String photo) {$/;"	m	class:Produit
+setPric_HT	main/Produit.java	/^	public void setPric_HT(String pric_HT) {$/;"	m	class:Produit
+setStock_qte	main/Produit.java	/^	public void setStock_qte(Integer stock_qte) {$/;"	m	class:Produit
+setTVA	main/Produit.java	/^	public void setTVA(String tVA) {$/;"	m	class:Produit
+stock_qte	main/Produit.java	/^	Integer stock_qte;$/;"	f	class:Produit

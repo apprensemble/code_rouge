@@ -1,0 +1,41 @@
+#!/bin/sh
+
+cd /home/moi/essais-fr2
+listeFichiers=`ls |egrep ".txt$"` #egrep : gere les regex
+echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+  <HTML>
+  <HEAD>
+  <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=iso-8859-1">
+  <link href="style_form_produit.css" rel="stylesheet" media="all" type="text/css"> 
+  <TITLE>un titre...</TITLE>
+  </HEAD>
+  <BODY> <p><h1>BIENVENUE AU SITE CHTI-CORP</h1></p>
+	 <h3>Produits dispo: </h3>
+<form id=produit align="center" action="form_produit.php" method="POST">
+ <input type="hidden" name="saisie_form" value="True">
+      <fieldset>
+' > index.html
+for fichiers in $listeFichiers
+do
+	echo "Fichier trouvé : $fichiers"
+	i=0
+	while read ligne
+		do   
+			case "$i" in
+				"0") echo "<fieldset><p>NOM: "$ligne"\n</p>" > ${fichiers%.txt}.html ;;
+				"1") echo "<p>CODE: "$ligne"\n</p>" >> ${fichiers%.txt}.html ;;
+				"2") echo "<p>DESCRIPTIF: "$ligne"\n</p>" >> ${fichiers%.txt}.html ;;
+				"3") echo "<p>QUANTITE: "$ligne"\n</p>" >> ${fichiers%.txt}.html ;;
+				"4") echo "<p>PRIX: "$ligne"\n</p></fieldset>" >> ${fichiers%.txt}.html ;;
+			esac
+			i=$((i + 1))
+		done < $fichiers
+	echo "<p><a href=${fichiers%.txt}.html> ${fichiers%.txt} </a></p>" >> index.html
+done
+echo '          
+      </fieldset>
+
+</form>
+  </BODY>
+  </HTML>
+ ' >> index.html
